@@ -10,7 +10,9 @@ def create_report(data_file_name: str, report_file_name: str):
                     supply += int(content[1])
                 elif content[0] == "buy":
                     buy += int(content[1])
-            report.write(f"supply,{supply}\nbuy,{buy}\nresult,{supply - buy}\n")
+            report.write(f"supply,{supply}\n"
+                         f"buy,{buy}\n"
+                         f"result,{supply - buy}\n")
             print("success")
 
 
