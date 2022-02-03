@@ -15,4 +15,3 @@ def create_report(data_file_name: str, report_file_name: str):
     with open(report_file_name, "w") as report:
         for key, value in result.items():
             report.write(f"{key},{value}\n")
-
