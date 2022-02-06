@@ -6,10 +6,11 @@ def create_report(data_file_name: str, report_file_name: str):
         buy = 0
 
         for line in trade:
+            value = int(line.split(",")[1])
             if line.split(",")[0] == "supply":
-                supply += int(line.split(",")[1])
+                supply += value
             else:
-                buy += int(line.split(",")[1])
+                buy += value
 
         with open(report_file_name, "w") as report:
             report.write(f"supply,{supply}\n"
