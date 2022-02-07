@@ -2,8 +2,8 @@ def create_report(data_file_name: str, report_file_name: str):
     supply = 0
     buy = 0
     with open(data_file_name, "r") as input_file:
-        intut_data = input_file.readlines()
-        for lines in intut_data:
+        input_data = input_file.readlines()
+        for lines in input_data:
             line = lines.strip().split(',')
             if line[0] == "supply":
                 supply += int(line[1])
