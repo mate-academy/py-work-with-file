@@ -8,8 +8,8 @@ def create_report(data_file_name: str, report_file_name: str):
                     ls = line.split(',')
                     if ls[0] == 'buy':
                         buy += int(ls[1])
-                        continue
-                    supply += int(ls[1])
+                    else:
+                        supply += int(ls[1])
             report = (f'supply,{supply}\n'
                       f'buy,{buy}\n'
                       f'result,{supply - buy}\n')
