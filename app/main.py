@@ -6,14 +6,11 @@ def create_report(data_file_name: str, report_file_name: str):
     buy = []
 
     for line in lines:
-        if line.startswith("supply"):
-            for idx, value in enumerate(line):
-                if value == ",":
-                    supply.append(int(line[idx + 1:]))
-        else:
-            for idx, value in enumerate(line):
-                if value == ",":
-                    buy.append(int(line[idx + 1:]))
+        if line.split(",")[0].lower() == "supply":
+            supply.append(int(line.split(",")[-1]))
+        elif line.split(",")[0].lower() == "buy":
+            buy.append(int(line.split(",")[-1]))
+
 
     with open(report_file_name, "w") as report:
         report.writelines("supply," + str(sum(supply)) + "\n")
