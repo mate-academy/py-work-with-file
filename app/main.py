@@ -4,8 +4,8 @@ def create_report(data_file_name: str, report_file_name: str):
     with open(data_file_name, "r") as data_file:
         data = data_file.read()
         data = data.split()
-        for iterator, value in enumerate(data):
-            temp = data[iterator].split(",")
+        for value in data:
+            temp = value.split(",")
 
             if temp[0] in data_dict:
                 data_dict[temp[0]] += int(temp[1])
