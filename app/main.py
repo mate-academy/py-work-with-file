@@ -10,5 +10,5 @@ def create_report(data_file_name, report_file_name):
                 if line.split(",")[0] == "buy":
                     buy += int(line.split(",")[1])
             report.write(f"supply,{supply}\n"
-                         f"" f"buy,{buy}\n"
+                         f"buy,{buy}\n"
                          f"result,{supply - buy}\n")
