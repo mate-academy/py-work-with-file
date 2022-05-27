@@ -5,7 +5,7 @@ def create_report(data_file_name: str, report_file_name: str):
     sum_supply, sum_buy = 0, 0
     for line in file_list:
         line = line.strip().split(',')
-        if 'supply' in line:
+        if "supply" in line:
             sum_supply += int(line[1])
         elif "buy" in line:
             sum_buy += int(line[1])
