@@ -4,10 +4,11 @@ def create_report(data_file_name: str, report_file_name: str):
 
     sum_supply, sum_buy = 0, 0
     for line in file_list:
+        line = line.strip().split(',')
         if 'supply' in line:
-            sum_supply += int(line[line.index(",") + 1:])
+            sum_supply += int(line[1])
         elif "buy" in line:
-            sum_buy += int(line[line.index(",") + 1:])
+            sum_buy += int(line[1])
 
     result_data = [
         f"supply,{sum_supply}\n",
