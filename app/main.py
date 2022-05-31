@@ -8,7 +8,9 @@ def create_report(data_file_name: str, report_file_name: str):
         for line in f:
             if line:
                 line_ls = line.split(",")
-                data_dict[line_ls[0]] += int(line_ls[1])
+                operation = line_ls[0]
+                amount = line_ls[1]
+                data_dict[operation] += int(amount)
 
         data_dict["result"] = data_dict["supply"] - data_dict["buy"]
 
