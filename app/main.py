@@ -1,5 +1,5 @@
 def create_report(data_file_name: str, report_file_name: str):
-    with open(f"../{data_file_name}", 'r') as f,\
+    with open(data_file_name, 'r') as f,\
             open(report_file_name, "w") as rep_file:
         buy = []
         supply = []
