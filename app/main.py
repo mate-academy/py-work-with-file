@@ -1,7 +1,6 @@
 def create_report(data_file_name: str, report_file_name: str):
     dict1 = {}
-    path = "C:\\Users\\cehr\\PycharmProjects\\py-work-with-file\\"
-    with open(path + data_file_name,
+    with open("..\\" + data_file_name,
               "r") as input_file, open(report_file_name, "w") as report:
         for i in input_file.read().split():
             operation_type = i.split(",")[0]
