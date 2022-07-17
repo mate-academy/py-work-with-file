@@ -12,5 +12,5 @@ def create_report(data_file_name: str, report_file_name: str):
 
     with open(report_file_name, 'w') as file_report:
         file_report.write(f'supply,{supply_result}\n'
-                   f'buy,{buy_result}\n'
-                   f'result,{supply_result - buy_result}\n')
+                          f'buy,{buy_result}\n'
+                          f'result,{supply_result - buy_result}\n')
