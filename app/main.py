@@ -1,5 +1,6 @@
 def create_report(data_file_name: str, report_file_name: str):
-    data_file_name = f'C:/Users/Bodnarchuk/Desktop/Project/study-project/py-work-with-file/{data_file_name}'
+    data_file_name = f'C:/Users/Bodnarchuk/Desktop/Project/' \
+                     f'study-project/py-work-with-file/{data_file_name}'
     with open(data_file_name, "r") as data_r:
         lines = data_r.readlines()
         s, b = 0, 0
