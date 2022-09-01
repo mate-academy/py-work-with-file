@@ -1,6 +1,5 @@
 def create_report(data_file_name: str, report_file_name: str):
     report_dict = {}
-    #path = "../" + data_file_name
     data = open(data_file_name, "r")
     while True:
         line = data.readline()
