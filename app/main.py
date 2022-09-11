@@ -13,7 +13,7 @@ def create_report(data_file_name: str, report_file_name: str):
                 else:
                     num_dict[t[0]] = int(t[1])
             res = int(num_dict["supply"]) - int(num_dict["buy"])
-            num_dict.update({"result": res})
+            num_dict = {**num_dict, "result": res}
             for key, value in sorted(num_dict.items(),
                                      key=lambda pair: pair[1],
                                      reverse=True):
