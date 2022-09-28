@@ -9,8 +9,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 data_table[line[0]] = int(line[1])
             else:
                 data_table[line[0]] += int(line[1])
-        reslt = (f'supply,{data_table["supply"]}\n'
-                 f'buy,{data_table["buy"]}\n'
-                 f'result,{data_table["supply"] - data_table["buy"]}\n')
+        result = (f'supply,{data_table["supply"]}\n'
+                  f'buy,{data_table["buy"]}\n'
+                  f'result,{data_table["supply"] - data_table["buy"]}\n')
 
-        file_out.write(reslt)
+        file_out.write(result)
