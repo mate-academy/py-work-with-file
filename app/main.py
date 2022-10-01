@@ -1,5 +1,6 @@
 
-def create_report(data_file_name: str, report_file_name: str):
+def create_report(data_file_name: str,
+                  report_file_name: str) -> None:
     supply = 0
     buy = 0
 
@@ -7,9 +8,9 @@ def create_report(data_file_name: str, report_file_name: str):
         content = d.readlines()
         for line in content:
             if "supply" == line.split(',')[0]:
-                supply += line.split(',')[1]
+                supply += int(line.split(',')[1])
             elif "buy" == line.split(',')[0]:
-                buy += line.split(',')[1]
+                buy += int(line.split(',')[1])
         result = supply - buy
         r.write(f"{'supply'},{supply}\n"
                 f"{'buy'},{buy}\n"
