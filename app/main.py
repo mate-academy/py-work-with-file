@@ -1,8 +1,7 @@
 def create_report(data_file_name: str,
                   report_file_name: str) -> None:
     temp = {"supply": 0, "buy": 0, "result": 0}
-    with (open(f"/Users/terrya/projects/py-work-with-file"
-               f"/{data_file_name}", "r") as data_file,
+    with (open(data_file_name, "r") as data_file,
           open(report_file_name, "w") as report_file):
         for line in data_file.read().splitlines():
             if line.split(",")[0] == "supply":
