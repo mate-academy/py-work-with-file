@@ -1,10 +1,5 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    with open("/Users"
-              "/ruravictor"
-              "/PycharmProjects"
-              "/pythonProject1"
-              "/py-work-with-file"
-              "/apples.csv", "r") as bananas:
+    with open("apples.csv", "r") as bananas:
         supply = []
         buy = []
         for i in bananas.read().split():
@@ -18,12 +13,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                                 f"buy,{sum(buy)}\n"
                                 f"result,{result}\n")
 
-    with open("/Users"
-              "/ruravictor"
-              "/PycharmProjects"
-              "/pythonProject1"
-              "/py-work-with-file"
-              "/bananas.csv", "r") as bananas:
+    with open("bananas.csv", "r") as bananas:
         supply = []
         buy = []
         for i in bananas.read().split():
@@ -37,12 +27,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                                  f"buy,{sum(buy)}\n"
                                  f"result,{result}\n")
 
-    with open("/Users"
-              "/ruravictor"
-              "/PycharmProjects"
-              "/pythonProject1"
-              "/py-work-with-file"
-              "/grapes.csv", "r") as grapes:
+    with open("grapes.csv", "r") as grapes:
         supply = []
         buy = []
         for i in grapes.read().split():
@@ -56,12 +41,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                                 f"buy,{sum(buy)}\n"
                                 f"result,{result}\n")
 
-    with open("/Users"
-              "/ruravictor"
-              "/PycharmProjects"
-              "/pythonProject1"
-              "/py-work-with-file"
-              "/oranges.csv", "r") as oranges:
+    with open("oranges.csv", "r") as oranges:
         supply = []
         buy = []
         for i in oranges.read().split():
