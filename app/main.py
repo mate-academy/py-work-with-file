@@ -18,7 +18,8 @@ def create_report(
             action = None
 
         info["result"] += info["supply"] - info["buy"]
-        info = f"supply,{info['supply']}\nbuy,{info['buy']}\nresult,{info['result']}"
+        info = f"supply,{info['supply']}\nbuy,\
+{info['buy']}\nresult,{info['result']}"
 
         file_out.write(info)
         file_out.close()
