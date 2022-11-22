@@ -1,24 +1,16 @@
-def create_report(
-        data_file_name: str,
-        report_file_name: str) -> None:
-    with (
-        open(data_file_name, "r") as file_in,
-        open(report_file_name, "w") as file_out
-    ):
-        file_in_copy = file_in.read().replace("\n", ",").split(",")
-        file_in.close()
-        action = None
-        info = {"supply": 0, "buy": 0, "result": 0}
+def create_report(data_file_name: str, report_file_name: str) -> None:
+    with open(data_file_name, "r") as file_in,\
+            open(report_file_name, "w") as file_out:
+        dict_of_value = {"supply": 0, "buy": 0}
 
-        for string in file_in_copy:
-            if action is None:
-                action = string
-                continue
-            info[action] += int(string)
-            action = None
+        for line in file_in:
+            splitted_line = line.split(",")
+            dict_of_value[splitted_line[0]] += int(splitted_line[1])
 
-        info["result"] += info["supply"] - info["buy"]
-        info = f"supply,{info['supply']}\nbuy,{info['buy']}\nresult,{info['result']}"
+        for key, value in dict_of_value.items():
+            result_string = f"{key},{value}\n"
+            file_out.write(result_string)
 
-        file_out.write(info)
-        file_out.close()
+        result = dict_of_value["supply"] - dict_of_value["buy"]
+
+        file_out.write(f"result,{result}\n")
