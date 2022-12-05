@@ -14,14 +14,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 total_buy = total_buy + int(row[1])
         rezult = total_supply - total_buy
 
-    result_rows = [
-        ["supply"], total_supply,
-        ["buy"], total_buy,
-        ["rezult"], rezult
 
-    ]
-
-    with open(report_file_name, "w", encoding="UTF-8") as csvfile_write:
-        csvwriter = csv.writer(csvfile_write)
-        for row in result_rows:
-            csvwriter.writerow(row)
+    report_file = csv.writer(csv_report_file, delimiter=",")
+    report_file.writerow(["supply", f"{total_supply}"])
+    report_file.writerow(["buy", f"{total_buy}"])
+    report_file.writerow(["result", f"{rezult}"])
