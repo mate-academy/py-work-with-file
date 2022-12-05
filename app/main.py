@@ -13,8 +13,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             if row[0] == "buy":
                 total_buy = total_buy + int(row[1])
         rezult = total_supply - total_buy
-    
-    rezult_rows = [
+
+    result_rows = [
         ["supply"], total_supply,
         ["buy"], total_buy,
         ["rezult"], rezult
