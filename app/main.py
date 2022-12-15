@@ -1,9 +1,9 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
 
-    with open(f"/Users/admin/projects/"
+    with open(
               f"py-work-with-file/{data_file_name}", "r") as file_in, \
-         open(f"/Users/admin/projects/"
-              f"py-work-with-file/{report_file_name}", "w+") as file_out:
+         open(
+              f"py-work-with-file/app/{report_file_name}", "w") as file_out:
         lst = file_in.readlines()
         total_supply = 0
         total_buy = 0
