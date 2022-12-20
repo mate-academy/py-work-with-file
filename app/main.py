@@ -15,9 +15,9 @@ def create_report(date_file_name: str, report_file_name: str) -> Any:
     with open(report_file_name, "a") as report:
         result = 0
         for key, value in data_dict.items():
-            report.write(f"{key},{value}/n")
+            report.write(f"{key},{value}\n")
             if key == "supply":
                 result += value
             if key == "buy":
                 result -= value
-        report.write(f"result,{result}/n")
+        report.write(f"result,{result}\n")
