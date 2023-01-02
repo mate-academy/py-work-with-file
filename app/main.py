@@ -1,7 +1,5 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    with open(
-            f"D:\\PythonProjects\\py-work-with-file\\{data_file_name}", "r"
-    ) as data_file, \
+    with open(data_file_name, "r") as data_file, \
             open(
                 report_file_name, "a"
     ) as report_file:
