@@ -10,4 +10,4 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 buy += int(line[4:])
         result = supply - buy
 
-        file_out.write(f"supply, {supply}\nbuy, {buy}\nresult, {result}\n")
+        file_out.write(f"supply,{supply}\nbuy,{buy}\nresult,{result}\n")
