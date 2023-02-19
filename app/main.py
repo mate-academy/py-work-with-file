@@ -1,14 +1,11 @@
 import csv
-import os
 
 
 def process_data(data_file_name: str, report_file_name: str) -> None:
     supply_count = 0
     buy_count = 0
 
-    input_file_path = os.path.abspath(data_file_name)
-
-    with open(input_file_path, newline="") as csvfile:
+    with open(data_file_name, newline="") as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
             if len(row) == 2:
@@ -18,10 +15,7 @@ def process_data(data_file_name: str, report_file_name: str) -> None:
                     buy_count += int(row[1])
 
     result = supply_count - buy_count
-
-    report_file_path = os.path.abspath(report_file_name)
-
-    with open(report_file_path, "w") as f:
+    with open(report_file_name, "w") as f:
         f.write(f"supply,{supply_count}\nbuy,{buy_count}\nresult,{result}")
 
 
