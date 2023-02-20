@@ -4,6 +4,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         total_supply = 0
         total_buy = 0
         information = first_information.split("\n")
+        information.pop()
         for line in information:
             if line.split(",")[0] == "supply":
                 total_supply += int(line.split(",")[1])
@@ -14,4 +15,4 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         result = total_supply - total_buy
         report_file.write(f"supply,{total_supply}\n")
         report_file.write(f"buy,{total_buy}\n")
-        report_file.write(f"result,{result}")
+        report_file.write(f"result,{result}\n")
