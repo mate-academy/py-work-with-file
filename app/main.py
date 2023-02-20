@@ -9,6 +9,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 supply += int(value)
             if action == "buy":
                 buy += int(value)
-        report_file.write(
-            f"supply,{supply}\n" f"buy,{buy}\n" f"result,{supply - buy}\n"
-        )
+        report_file.write(f"supply,{supply}\n"
+                          f"buy,{buy}\n"
+                          f"result,{supply - buy}\n")
