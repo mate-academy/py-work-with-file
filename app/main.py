@@ -1,4 +1,4 @@
-def create_report(data_file_name: str, report_file_name: str):
+def create_report(data_file_name: str, report_file_name: str) -> None:
     open_file = open(data_file_name, "r")
     new_dict = dict()
     for data in open_file:
