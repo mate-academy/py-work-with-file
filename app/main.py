@@ -3,8 +3,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     buy = 0
     with open(data_file_name, "r") as file, \
             open(report_file_name, "w") as report_file:
-        list_file = file.read().split()
-        for word in list_file:
+        for word in file.read().split():
             if word:
                 temp_list = word.split(",")
                 if temp_list[0] == "supply":
