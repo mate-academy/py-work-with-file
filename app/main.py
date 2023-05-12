@@ -15,4 +15,4 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
         report_file.write(f"supply,{summary['supply']}\n"
                           f"buy,{summary['buy']}\n"
-                          f"result,{summary['supply'] - summary['buy']}")
+                          f"result,{summary['supply'] - summary['buy']}\n")
