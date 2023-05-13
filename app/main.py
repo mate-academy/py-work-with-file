@@ -15,4 +15,4 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     with open(report_file_name, "w") as report_file:
         report_file.write("supply," + str(total_supply) + "\n")
         report_file.write("buy," + str(total_buy) + "\n")
-        report_file.write("result," + str(result))
+        report_file.write("result," + str(result) + "\n")
