@@ -10,6 +10,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             if split_line[0] == "supply":
                 supply += int(split_line[1])
         result = supply - buy
-        file_in.write(f"supply, {supply}\n"
-                      f"buy, {buy}\n"
-                      f"result, {result}\n")
+        file_in.write(f"supply,{supply}\n"
+                      f"buy,{buy}\n"
+                      f"result,{result}\n")
