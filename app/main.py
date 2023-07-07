@@ -20,4 +20,3 @@ def create_report(data_file_name: str, report_file_name: str) -> str:
             else:
                 print(f"Не вдалося створити файл {report_file_name}.")
             file.close()
- #   return f"supply,{i_supply}\nbuy,{i_buy}\nresult,{i_supply - i_buy}\n"
