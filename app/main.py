@@ -1,5 +1,4 @@
 def create_report(data_file_name: str, report_file_name: str) -> str:
-    global expected_report
     i_supply = 0
     i_buy = 0
     with open(data_file_name, "r") as file:
@@ -13,7 +12,3 @@ def create_report(data_file_name: str, report_file_name: str) -> str:
                 str(f"supply,{i_supply}\nbuy,"
                     f"{i_buy}\nresult,{i_supply - i_buy}\n")
             )
-        with open(report_file_name, "r") as file2:
-            order_summary = file2.read()
-        print(order_summary)
-        file.close()
