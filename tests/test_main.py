@@ -55,6 +55,6 @@ def test_create_report(
 ) -> None:
     create_report(data_file_name, report_file_name)
 
-    with CleanUpFile(report_file_name):
-        with open(report_file_name, "r") as report_file:
-            assert report_file.read() == expected_report
+    #with CleanUpFile(report_file_name):
+    with open(report_file_name, "r") as report_file:
+        assert report_file.read() == expected_report
