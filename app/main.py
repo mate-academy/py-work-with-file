@@ -1,5 +1,5 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    with open(f"../{data_file_name}", "r") as data_file:
+    with open(f"{data_file_name}", "r") as data_file:
         strings = data_file.readlines()
 
     data_dict = {}
