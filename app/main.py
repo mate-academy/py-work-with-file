@@ -18,6 +18,3 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         file_to_write.write(f"supply,{supply}\n")
         file_to_write.write(f"buy,{buy}\n")
         file_to_write.write(f"result,{supply - buy}\n")
-
-
-create_report("file.txt", "report_file_name")
