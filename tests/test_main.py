@@ -1,4 +1,5 @@
 from __future__ import annotations
+import csv
 import os
 from types import TracebackType
 from typing import Optional, Type
@@ -6,6 +7,7 @@ from typing import Optional, Type
 import pytest
 
 from app.main import create_report
+
 
 
 class CleanUpFile:
