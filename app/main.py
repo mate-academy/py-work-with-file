@@ -2,14 +2,15 @@ def create_report(
         data_file_name: str,
         report_file_name: str
 ) -> None:
-    report = {}
-    with open(data_file_name, "r") as old_file:
-        for line in old_file.readlines():
-            line_ls = line.split(",")
-            if line_ls[0] not in report:
-                report[line_ls[0]] = line_ls[1]
-            else:
-                report[line_ls[0]] += line_ls[1]
-    with open(report_file_name, "w") as new_file:
-        for data in report:
-            new_file.write(f"{data},{report[data]}\n")
+    with (
+        open(data_file_name, "r") as source_file,
+        open(report_file_name, "w") as report_file,
+    ):
+        data = {"supply": 0, "buy": 0}
+        for line in source_file.readlines():
+            key, value = line.split(",")
+            data[key] += int(value)
+        data["result"] = data["supply"] - data["buy"]
+
+        result = "\n".join([f"{key},{value}" for key, value in data.items()])
+        report_file.write(result + "\n")
