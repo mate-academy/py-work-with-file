@@ -21,4 +21,4 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     with open(report_file_name, "w") as output_file:
         output_file.write(f"supply,{supply_sum}\n")
         output_file.write(f"buy,{buy_sum}\n")
-        output_file.write(f"result,{result}")
+        output_file.write(f"result,{result}\n")
