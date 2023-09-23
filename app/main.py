@@ -16,8 +16,3 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         csvwriter.writerow(["supply", supply])
         csvwriter.writerow(["buy", buy])
         csvwriter.writerow(["result", supply - buy])
-
-
-create_report("C:/Users/andsh/PycharmProjects"
-              "/MyProjects/tasks_with_git_fork/"
-              "py-work-with-file/apples.csv", "result.csv")
