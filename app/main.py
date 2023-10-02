@@ -7,10 +7,11 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         catalog = {}
         rows = csv.reader(file_reader)
         for naimen, kolvo in rows:
-            catalog[naimen] = kolvo
-
-    result = int(catalog.get("supply")) - int(catalog.get("buy"))
-    print(f"supply,{catalog.get('supply')},buy,{catalog.get('buy')},{result}")
+            if naimen in catalog:
+                catalog[naimen] += kolvo
+            else:
+                catalog[naimen] = kolvo
+        result = int(catalog.get("supply")) - int(catalog.get("buy"))
 
     with open(report_file_name, "w") as file_writer:
         file_writer.write(f"supply,{catalog.get('supply')}\n")
