@@ -10,10 +10,14 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         csv_reader = csv.reader(file_read)
 
         for data in csv_reader:
-            if data[0] == "supply":
-                supply += int(data[1])
-            elif data[0] == "buy":
-                buy += int(data[1])
+
+            operant = data[0]
+            amount = int(data[1])
+
+            if operant == "supply":
+                supply += amount
+            elif operant == "buy":
+                buy += amount
 
         result = supply - buy
 
