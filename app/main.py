@@ -1,4 +1,4 @@
-def create_report(data_file_name: str, report_file_name: str):
+def create_report(data_file_name: str, report_file_name: str) -> None:
     with open(data_file_name, "r") as file:
         data = file.readlines()
 
@@ -6,7 +6,7 @@ def create_report(data_file_name: str, report_file_name: str):
     buy = 0
 
     for row in data:
-        operation, amount_str = row.strip().split(',')
+        operation, amount_str = row.strip().split(",")
         amount = int(amount_str)
 
         if operation == "supply":
