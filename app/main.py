@@ -9,7 +9,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
     with open(report_file_name, "w") as rf:
         rf.write(
-            f'supply,{grouped["supply"]}\n'
-            f'buy,{grouped["buy"]}\n'
-            f'result,{result}\n'
+            f"supply,{grouped.supply}\n"
+            f"buy,{grouped.buy}\n"
+            f"result,{result}\n"
         )
