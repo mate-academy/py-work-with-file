@@ -11,7 +11,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             else:
                 buy += int(line.split(",")[-1])
 
-    with open(report_file_name, "w", newline="") as report_file:
+    with open(report_file_name, "w") as report_file:
         writer = csv.writer(report_file)
         writer.writerows([["supply", supply], ["buy", buy],
                           ["result", supply - buy]])
