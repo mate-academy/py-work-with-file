@@ -2,10 +2,7 @@ from os import path
 
 
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    base_directory = "C:\\Projects_python\\Mate_Projects\\Work_with_file"
-    file_path = path.join(base_directory, data_file_name)
-
-    if not path.exists(file_path):
+    if not path.exists(data_file_name):
         print(f"{data_file_name} not found.")
         return
 
@@ -16,7 +13,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         )
         return
 
-    with open(file_path, "r") as input_file:
+    with open(data_file_name, "r") as input_file:
         with open(report_file_name, "w") as output_file:
             supply_total = 0
             buy_total = 0
