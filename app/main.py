@@ -12,4 +12,4 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             report_file.write(f"{key},{value}\n")
 
         result = csv_data["supply"] - csv_data["buy"]
-        report_file.write(f"result,{result}")
+        report_file.write(f"result,{result}\n")
