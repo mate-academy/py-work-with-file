@@ -17,6 +17,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             f"result,{result}\n"
 
         )
+<<<<<<< HEAD
 
 
 create_report("apples.csv", "apples_report.txt")
+=======
+>>>>>>> 8539bddc8924a3d0ad6f6f9bb6b0f8a452d007ae
