@@ -19,4 +19,4 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         )
 
 
-create_report("../tests/apples.csv", "apples_report.txt")
+create_report("apples.csv", "apples_report.txt")
