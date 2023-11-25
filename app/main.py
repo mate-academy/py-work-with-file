@@ -1,35 +1,22 @@
-import os
+def create_report(data_file_name: str, report_file_name: str) -> None:
+    with open(data_file_name, "r") as data_file:
+        line = data_file.readline()
+        calc_dict = {}
+        while line:
+            operation, amount = line.strip().split(",")
+            calc_dict[operation] = calc_dict.get(operation, 0) + int(amount)
+            line = data_file.readline()
+
+    supply = calc_dict["supply"]
+    buy = calc_dict["buy"]
+    result = supply - buy
+    with open(report_file_name, "w") as report_file:
+        report_file.write(
+            f"supply,{supply}\n"
+            f"buy,{buy}\n"
+            f"result,{result}\n"
+
+        )
 
 
-def create_report(
-        data_file_name: str,
-        report_file_name: str
-) -> None:
-    data_dict = {"result": 0,
-                 "supply": 0,
-                 "buy": 0}
-
-    with open(os.path.abspath(
-            data_file_name), "r") as file:
-
-        for line in file:
-
-            data = line.split(",")
-            key = data[0]
-            value = int(data[1][:-1])
-
-            if key in data_dict:
-                data_dict[key] += value
-        file.close()
-
-    data_dict["result"] += data_dict["supply"]
-    data_dict["result"] -= data_dict["buy"]
-
-    with open(os.path.abspath(report_file_name),
-              "a") as report:
-
-        report.write(f"supply,{str(data_dict['supply'])}\n")
-        report.write(f"buy,{str(data_dict['buy'])}\n")
-        report.write(f"result,{str(data_dict['result'])}\n")
-
-        report.close()
+create_report("../tests/apples.csv", "apples_report.txt")
