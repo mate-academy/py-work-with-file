@@ -5,7 +5,6 @@ def create_report(
         data_file_name: str,
         report_file_name: str
 ) -> None:
-
     data_dict = {"result": 0,
                  "supply": 0,
                  "buy": 0}
@@ -14,16 +13,13 @@ def create_report(
             data_file_name), "r") as file:
 
         for line in file:
-            if line.rstrip():
 
-                data = line.split(",")
-                key = data[0]
-                value = int(data[1][:-1])
+            data = line.split(",")
+            key = data[0]
+            value = int(data[1][:-1])
 
-                if key in data_dict:
-                    data_dict[key] += value
-                else:
-                    data_dict.update({key: value})
+            if key in data_dict:
+                data_dict[key] += value
         file.close()
 
     data_dict["result"] += data_dict["supply"]
