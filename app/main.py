@@ -10,7 +10,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 buy.append(arg[1])
         sum_suply = sum([int(i) for i in suply])
         sum_buy = sum([int(i) for i in buy])
-        result_file.write(f"supply = {' + '.join(suply)} = {sum(suply)}")
-        result_file.write(f"supply = {' + '.join(buy)} = {sum(buy)}")
+        result_file.write(f"supply = {' + '.join(suply)} = {sum_suply}")
+        result_file.write(f"supply = {' + '.join(buy)} = {sum_buy}")
         result_file.write(f"result = supply - buy = {sum_suply} "
                           f"- {sum_buy} = {sum_suply - sum_buy}")
