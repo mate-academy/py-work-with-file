@@ -11,7 +11,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 continue
             if line[0] == "supply":
                 supply += int(line[1])
-            if line[1] == "buy":
+            if line[0] == "buy":
                 buy += int(line[1])
     result = supply - buy
     with open(report_file_name, "w") as csvfile:
