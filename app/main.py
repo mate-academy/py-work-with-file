@@ -1,6 +1,6 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
     try:
-        inp = open("../" + data_file_name, "r")
+        inp = open(data_file_name, "r")
         sum_list = {"supply": 0, "buy": 0}
         for line in inp:
             data = line.split(",")
