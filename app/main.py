@@ -9,7 +9,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         out = open(report_file_name, "w")
         for line in sum_list:
             out.write(f"{line},{sum_list[line]}\n")
-        out.write(f"result,{sum_list["supply"] - sum_list["buy"]}\n")
+        out.write(f'result,{sum_list["supply"] - sum_list["buy"]}\n')
         out.close()
     except FileNotFoundError:
         print("File is not found!")
