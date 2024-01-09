@@ -5,14 +5,15 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             open(report_file_name, "w") as final_report
         ):
             initial_data = read_file.readlines()
+            print(initial_data)
             report_dict = {"supply": 0, "buy": 0}
 
             for line in initial_data:
                 stripped_line = line.strip()
                 splitted_stripped_line = stripped_line.split(",")
+                print(splitted_stripped_line)
 
-                key = splitted_stripped_line[0]
-                value = int(splitted_stripped_line[1])
+                key, value = splitted_stripped_line[0], int(splitted_stripped_line[1])
 
                 report_dict[key] += value
 
