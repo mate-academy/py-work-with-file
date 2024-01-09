@@ -3,13 +3,13 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         supply = 0
         buy = 0
         for line in input_data.readlines():
-            splitted = line.split(",")
-            if splitted[0] == "supply":
-                supply += int(splitted[1])
-            if splitted[0] == "buy":
-                buy += int(splitted[1])
+            line_split = line.split(",")
+            if line_split[0] == "supply":
+                supply += int(line_split[1])
+            if line_split[0] == "buy":
+                buy += int(line_split[1])
         result = supply - buy
     with open(report_file_name, "a") as report:
-        report.write(f"supply, {supply}\n")
-        report.write(f"buy, {buy}\n")
-        report.write(f"result, {result}\n")
+        report.write(f"supply,{supply}\n")
+        report.write(f"buy,{buy}\n")
+        report.write(f"result,{result}\n")
