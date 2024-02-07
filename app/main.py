@@ -12,6 +12,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 total_buy += int(list_value[1])
     result = total_supply - total_buy
     with open(report_file_name, "a") as output_file:
-        output_file.write(f"{"supply,"}{total_supply}\n")
-        output_file.write(f"{"buy,"}{total_buy}\n")
-        output_file.write(f"{"result,"}{result}\n")
+        supply_str = "supply" + "," + f"{total_supply}" + "\n"
+        output_file.write(supply_str)
+        buy_str = "buy" + "," + f"{total_buy}" + "\n"
+        output_file.write(buy_str)
+        result_str = "result" + "," + f"{result}" + "\n"
+        output_file.write(result_str)
