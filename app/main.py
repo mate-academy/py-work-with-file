@@ -1,24 +1,18 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    with (open(data_file_name, "r") as input_file,
-          open(report_file_name, "w") as output_file):
-        final_data = {}
-        lines = input_file.readlines()
+    with (open(data_file_name, "r") as data_file,
+          open(report_file_name, "w") as result_file):
 
-        for line in lines:
-            if line:
-                name, value = line.split(",")
+        result = {}
+        data = data_file.read().split("\n")
 
-                if name in final_data:
-                    final_data[name] += int(value)
-                else:
-                    final_data[name] = int(value)
+        for line in data:
+            if not line:
+                break
+            operation, amount = line.split(",")
+            result[operation] = result.get(operation, 0) + int(amount)
 
-        final_data["result"] = final_data["supply"] - final_data["buy"]
-
-        output_file.write(
-            "\n".join(
-                [",".join([key, str(value)])
-                 for key, value in final_data.items()
-                 ]
-            )
+        result_file.write("supply," + str(result["supply"]) + "\n")
+        result_file.write("buy," + str(result["buy"]) + "\n")
+        result_file.write(
+            "result," + str(result["supply"] - result["buy"]) + "\n"
         )
