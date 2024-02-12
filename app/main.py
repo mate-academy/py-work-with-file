@@ -15,6 +15,10 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
         final_data["result"] = final_data["supply"] - final_data["buy"]
 
-        output_file.write("\n".join([f"{key},{value}" for key, value in final_data.items()]))
-
-
+        output_file.write(
+            "\n".join(
+                [",".join([key, value])
+                 for key, value in final_data.items()
+                 ]
+            )
+        )
