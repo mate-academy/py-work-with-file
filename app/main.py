@@ -17,7 +17,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
         output_file.write(
             "\n".join(
-                [",".join([key, value])
+                [",".join([key, str(value)])
                  for key, value in final_data.items()
                  ]
             )
