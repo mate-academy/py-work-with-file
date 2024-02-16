@@ -7,6 +7,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             market_info[line.replace(",", " ").split()[0]] += int(
                 line.replace(",", " ").split()[1])
         for key, value in market_info.items():
-            output_file.write(f"{key},{value}\n")
-        output_file.write(f"result,"
-                          f"{market_info["supply"] - market_info["buy"]}\n")
+            output_file.write(f"{key}, {value}\n".replace(" ", ""))
+        output_file.write(f"result, "
+                          f"{market_info["supply"] - market_info["buy"]}\n"
+                          .replace(" ", ""))
