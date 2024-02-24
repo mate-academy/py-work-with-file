@@ -7,8 +7,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                     data["supply"] += int(line[7:])
                 else:
                     data["buy"] += int(line[4:])
-    with open(report_file_name, "w") as f:
-        f.write(
+    with open(report_file_name, "w") as file:
+        file.write(
             f"supply,{data['supply']}\n"
             f"buy,{data['buy']}\n"
             f"result,{data['supply'] - data['buy']}\n"
