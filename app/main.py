@@ -1,17 +1,18 @@
-import csv
-from collections import defaultdict
-
-
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    data = defaultdict(int)
+    supply, buy = 0, 0
 
     with open(data_file_name, "r") as data_file:
-        reader = csv.reader(data_file)
-        for row in reader:
-            key, value = row
-            data[key] += int(value)
+        for line in data_file:
+            if not line:
+                break
+
+            value = int(line.split(",")[1])
+            if line.startswith("supply"):
+                supply += value
+            if line.startswith("buy"):
+                buy += value
 
     with open(report_file_name, "w") as report_file:
-        writer = csv.writer(report_file)
-        for key, value in sorted(data.items()):
-            writer.writerow([key, value])
+        report_file.write(f"supply,{supply}\n")
+        report_file.write(f"buy,{buy}\n")
+        report_file.write(f"result,{supply - buy}\n")
