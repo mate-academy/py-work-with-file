@@ -3,13 +3,13 @@ from collections import defaultdict
 
 
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    data = defaultdict(str)
+    data = defaultdict(int)
 
     with open(data_file_name, "r") as data_file:
         reader = csv.reader(data_file)
         for row in reader:
             key, value = row
-            data[key] += value
+            data[key] += int(value)
 
     with open(report_file_name, "w", newline="") as report_file:
         writer = csv.writer(report_file)
