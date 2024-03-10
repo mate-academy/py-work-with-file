@@ -11,7 +11,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 supply_buy["supply"] += int(row[1])
             if row[0] == "buy":
                 supply_buy["buy"] += int(row[1])
-        report_file.write(f"supply,{supply_buy["supply"]}\n")
-        report_file.write(f"buy,{supply_buy["buy"]}\n")
-        report_file.write(f"result,"
-                          f"{supply_buy["supply"] - supply_buy["buy"]}\n")
+        buy = supply_buy["buy"]
+        supply = supply_buy["supply"]
+        result = supply - buy
+        report_file.write(f"supply,{supply}\n")
+        report_file.write(f"buy,{buy}\n")
+        report_file.write(f"result,{result}\n")
