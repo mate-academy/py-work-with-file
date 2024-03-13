@@ -1,9 +1,9 @@
 # write your code here
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    with open(data_file_name, "r") as data_file,\
+    with open(f"../{data_file_name}", "r") as data_file,\
             open(report_file_name, "w") as report_file:
         data_file = \
-            [line.split(",") for line in data_file.read().split("\n")][:-2]
+            [line.split(",") for line in data_file.read().split("\n")][:-1]
         buy = 0
         supply = 0
         for element in data_file:
