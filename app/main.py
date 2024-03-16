@@ -5,19 +5,19 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     supply_total = 0
     buy_total = 0
 
-    with open(data_file_name, mode='r') as data_file:
-        reader = csv.reader(data_file)
-        for row in reader:
+    with open(data_file_name, "r") as f:
+        for line in f:
+            row = line.split(",")
             if row:
                 operation_type, amount = row
-                if operation_type == 'supply':
+                if operation_type == "supply":
                     supply_total += int(amount)
-                elif operation_type == 'buy':
+                elif operation_type == "buy":
                     buy_total += int(amount)
 
     result = supply_total - buy_total
 
-    with open(report_file_name, mode='w') as report_file:
+    with open(report_file_name, mode="w") as report_file:
         report_file.write(f"supply,{supply_total}\n")
         report_file.write(f"buy,{buy_total}\n")
         report_file.write(f"result,{result}\n")
