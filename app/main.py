@@ -1,17 +1,16 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    buy = 0
     supply = 0
-
+    buy = 0
     with (
-        open(data_file_name, "r") as first,
-        open(report_file_name, "w") as second
+        open(data_file_name, "r") as file_in,
+        open(report_file_name, "w") as file_out
     ):
-        for line in first.readlines():
-            line_split = line.split(",")
-            if "supply" in line_split:
-                supply += int(line_split[1])
-            elif "buy" in line_split:
-                buy += int(line_split[1])
-        second.write(f"supply,{supply}\n")
-        second.write(f"buy,{buy}\n")
-        second.write(f"result,{supply - buy}\n")
+        for line in file_in.readlines():
+            splitted_line = line.split(",")
+            if "supply" in splitted_line:
+                supply += int(splitted_line[1])
+            elif "buy" in splitted_line:
+                buy += int(splitted_line[1])
+        file_out.write(f"supply,{supply}\n")  # noqa
+        file_out.write(f"buy,{buy}\n")  # noqa
+        file_out.write(f"result,{supply - buy}\n")  # noqa
