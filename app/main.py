@@ -11,6 +11,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
         result = report_dict["supply"] - report_dict["buy"]
 
-        new_file.write(f"supply,{report_dict["supply"]}\n")
-        new_file.write(f"buy,{report_dict["buy"]}\n")
+        new_file.write(f"supply,{report_dict['supply']}\n")
+        new_file.write(f"buy,{report_dict['buy']}\n")
         new_file.write(f"result,{result}\n")
