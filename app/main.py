@@ -1,7 +1,7 @@
 import csv
 
 
-def create_report(data_file_name: str, report_file_name: str):
+def create_report(data_file_name: str, report_file_name: str) -> None:
     with (
         open(data_file_name, "r") as data_file_csvfile,
         open(report_file_name, "w") as report_csvfile,
