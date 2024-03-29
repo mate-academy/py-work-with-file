@@ -2,7 +2,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     result_list = []
     key_list = []
 
-    with open("../" + data_file_name, "r") as f:
+    with open(data_file_name, "r") as f:
         for line in f.read().split("\n"):
             if len(line) > 0:
                 result_list.append(line.split(","))
