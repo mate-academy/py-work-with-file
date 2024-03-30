@@ -13,5 +13,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 supply += int(lst[i + 1])
             if lst[i] == "buy":
                 buy += int(lst[i + 1])
-        report = f"supply, {supply}\nbuy, {buy}\nresult, {supply - buy}\n"
+
+        report = ("supply," + str(supply) + "\n"
+                  + "buy," + str(buy) + "\n"
+                  + "result," + str(supply - buy) + "\n")
+
         file_out.write(report)
