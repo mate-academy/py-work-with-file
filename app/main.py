@@ -1,4 +1,4 @@
-def create_report(data_file_name: str, report_file_name: str):
+def create_report(data_file_name: str, report_file_name: str) -> None:
     with (open(data_file_name, "r")
           as file_in, open(report_file_name, "a") as file_out):
 
@@ -13,5 +13,5 @@ def create_report(data_file_name: str, report_file_name: str):
                 supply += int(lst[i + 1])
             if lst[i] == "buy":
                 buy += int(lst[i + 1])
-        report = f"supply,{supply}\nbuy,{buy}\nresult,{supply - buy}\n"
+        report = f"supply, {supply}\nbuy, {buy}\nresult, {supply - buy}\n"
         file_out.write(report)
