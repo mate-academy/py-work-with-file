@@ -1,18 +1,14 @@
-import csv
-
-
 def create_report(data_file_name: str, report_file_name: str) -> None:
     supply_total = 0
     buy_total = 0
-    with open(data_file_name, newline="") as csvfile:
-        reader = csv.reader(csvfile)
-        for row in reader:
-            if row:
-                operation_type, amount = row
-                if operation_type == "supply":
-                    supply_total += int(amount)
-                elif operation_type == "buy":
-                    buy_total += int(amount)
+    reader = open(data_file_name, "r")
+    for row in reader:
+        if row:
+            operation_type, amount = row.split(",")
+            if operation_type == "supply":
+                supply_total += int(amount)
+            elif operation_type == "buy":
+                buy_total += int(amount)
 
     result = supply_total - buy_total
 
