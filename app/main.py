@@ -11,4 +11,4 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 report_dict[line_list[0]] += int(line_list[1])
     with open(report_file_name, "w") as file_out:
         for ind, key in report_dict.items():
-            file_out.write(f"{ind},{key}")
+            file_out.write(f"{ind},{key}\n")
