@@ -1,6 +1,7 @@
-def create_report(data_file_name: str, report_file_name: str):
+def create_report(data_file_name: str, report_file_name: str) -> None:
     operations = [0, 0]
-    with open(data_file_name, "r") as input_file, open(report_file_name, "w") as output_file:
+    with (open(data_file_name, "r") as input_file,
+          open(report_file_name, "w") as output_file):
         data = input_file.read().split("\n")
         for line in data:
             if line:
