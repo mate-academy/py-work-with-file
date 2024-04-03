@@ -18,4 +18,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         write_data_stream.write("buy" + "," +
                                 str(object_dictionary["buy"]) + '\n')
         write_data_stream.write("result," +
-                                str(object_dictionary["supply"] - object_dictionary["buy"]) + '\n')
+                                str(object_dictionary["supply"]
+                                    - object_dictionary["buy"])
+                                + '\n')
