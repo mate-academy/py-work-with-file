@@ -21,5 +21,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                                 + str(object_dictionary["supply"]
                                       - object_dictionary["buy"]) + "\n")
 
+
 if __name__ == "__main__":
     print(1)
