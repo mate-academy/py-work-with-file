@@ -5,7 +5,7 @@ from typing import Optional, Type
 
 import pytest
 
-from app.main import create_report
+from tests.main import create_report
 
 
 class CleanUpFile:
