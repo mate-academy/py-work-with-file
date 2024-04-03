@@ -13,11 +13,10 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 object_dictionary[object_type] = int(object_value)
     with open(report_file_name, "w") as write_data_stream:
 
-        write_data_stream.write("supply" + "," +
-                                str(object_dictionary["supply"]) + '\n')
-        write_data_stream.write("buy" + "," +
-                                str(object_dictionary["buy"]) + '\n')
-        write_data_stream.write("result," +
-                                str(object_dictionary["supply"]
-                                    - object_dictionary["buy"])
-                                + '\n')
+        write_data_stream.write("supply" + ","
+                                + str(object_dictionary["supply"]) + "\n")
+        write_data_stream.write("buy" + ","
+                                + str(object_dictionary["buy"]) + "\n")
+        write_data_stream.write("result,"
+                                + str(object_dictionary["supply"]
+                                      - object_dictionary["buy"]) + "\n")
