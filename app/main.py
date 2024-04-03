@@ -20,3 +20,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         write_data_stream.write("result,"
                                 + str(object_dictionary["supply"]
                                       - object_dictionary["buy"]) + "\n")
+
+if __name__ == "__main__":
+    print(1)
