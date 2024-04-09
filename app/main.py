@@ -14,12 +14,12 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         total_dict["result"] = total_dict["supply"] - total_dict["buy"]
 
         if "supply" in total_dict:
-            report_file.write(f"supply,{total_dict["supply"]}\n")  # noqa: E231
+            report_file.write(f'supply,{total_dict["supply"]}\n')  # noqa: E231
 
         if "buy" in total_dict:
-            report_file.write(f"buy,{total_dict["buy"]}\n")  # noqa: E231
+            report_file.write(f'buy,{total_dict["buy"]}\n')  # noqa: E231
 
-        report_file.write(f"result,{total_dict["result"]}\n")  # noqa: E231
+        report_file.write(f'result,{total_dict["result"]}\n')  # noqa: E231
 
 
 if __name__ == "__main__":
