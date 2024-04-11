@@ -12,7 +12,4 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
     with open(report_file_name, "w") as out_file:
         for operation, amount in operations.items():
-            out_file.write(f"{operation}, {amount}\n")
-
-
-# create_report("apples.csv", "report.csv")
+            out_file.write(f"{operation},{amount}\n")
