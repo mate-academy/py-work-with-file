@@ -1,6 +1,7 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
     buy, supply = 0, 0
-    with open(data_file_name, "r") as source_file, open(report_file_name, "w") as report_file:
+    with (open(data_file_name, "r") as source_file,
+          open(report_file_name, "w") as report_file):
         for data in source_file:
             op_data, value = data.split(",")
             if op_data == "buy":
