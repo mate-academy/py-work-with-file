@@ -1,6 +1,7 @@
 def create_report(data_file_name: str, report_file_name: str = "") -> None:
     data_dict = {}
     io = []
+
     with open(data_file_name) as f_data:
         io = f_data.readlines()
 
@@ -12,7 +13,7 @@ def create_report(data_file_name: str, report_file_name: str = "") -> None:
         else:
             data_dict[data.split(",")[0]] = int(data.split(",")[1])
 
-    with open(report_file_name,"w") as f_data:
+    with open(report_file_name, "tw") as f_data:
         supply = str(data_dict["supply"])
         buy = str(data_dict["buy"])
         result = data_dict["supply"] - data_dict["buy"]
