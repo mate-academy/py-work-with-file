@@ -8,5 +8,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
     report["result"] = report["supply"] - report["buy"]
 
-    with open(report_file_name, 'a') as output_file:
-        output_file.write(f"supply,{report['supply']}\nbuy,{report['buy']}\nresult,{report['result']}\n")
+    with (open(report_file_name, "a")
+          as output_file):
+        output_file.write(f"supply, {report["supply"]}\n"
+                          f"buy, {report["buy"]}\n"
+                          f"result, {report["result"]}\n")
