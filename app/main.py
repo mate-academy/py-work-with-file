@@ -21,4 +21,4 @@ def create_report(
 
         result = supply - buy
 
-        report_file.write(f"supply, {supply}\nbuy, {buy}\nresult, {result}\n")
+        report_file.write(f"supply,{supply}\nbuy,{buy}\nresult,{result}\n")
