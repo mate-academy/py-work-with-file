@@ -17,10 +17,10 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         result = operation_totals["supply"] - operation_totals["buy"]
 
         # Write the report to the output file
-        with open(report_file_name, "w") as report_file:
-            report_file.write(f"supply,{operation_totals["supply"]}\n")
-            report_file.write(f"buy,{operation_totals["buy"]}\n")
-            report_file.write(f"result,{result}\n")
+        with open(report_file_name, 'w') as report_file:
+            report_file.write("supply," + str(operation_totals['supply']) + "\n")
+            report_file.write("buy," + str(operation_totals['buy']) + "\n")
+            report_file.write("result," + str(result) + "\n")
 
         print("Report created successfully.")
     except FileNotFoundError:
