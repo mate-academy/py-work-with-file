@@ -4,6 +4,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
           open(report_file_name, "w") as report):
         for line in data:
             data_dict[line.split(",")[0]] += int(line.split(",")[1])
-        report.write(f"supply,{data_dict["supply"]}\n"
-                     f"buy,{data_dict["buy"]}\n"
-                     f"result,{data_dict["supply"] - data_dict["buy"]}\n")
+        report.write("supply," + str(data_dict["supply"]) + "\n")
+        report.write("buy," + str(data_dict["buy"]) + "\n")
+        report.write("result," + str(data_dict["supply"]
+                                     - data_dict["buy"]) + "\n")
