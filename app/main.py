@@ -29,4 +29,4 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
     with open(report_file_name, "w") as report_file:
         for report_line in report_lines:
-            report_file.write(report_line + "\n")
+            report_file.write(report_line.replace(" ", "") + "\n")
