@@ -14,7 +14,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 result_dict[key] = value
 
         file_out.write(
-            f"supply,{str(result_dict["supply"])}\n"
-            f"buy,{str(result_dict["buy"])}\n"
-            f"result,{result_dict["supply"] - result_dict["buy"]}\n"
+            f"supply,{str(result_dict['supply'])}\n"
+            f"buy,{str(result_dict['buy'])}\n"
+            f"result,{result_dict['supply'] - result_dict['buy']}\n"
         )
