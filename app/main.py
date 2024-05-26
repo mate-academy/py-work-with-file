@@ -5,7 +5,7 @@ def create_report(data_file_name: str,
         "buy": 0,
         "result": 0
     }
-    with open("../" + data_file_name, "r") as f:
+    with open(data_file_name, "r") as f:
         line = f.readline().strip("\n")
         while line:
             operation, amount = line.split(",")
