@@ -1,9 +1,9 @@
-SRC = "C:\\Users\\Admin\\ProjectsGit\\PythonCore\\py-work-with-file\\"
+# SRC = "C:\\Users\\Admin\\ProjectsGit\\PythonCore\\py-work-with-file\\"
 
 
 def create_report(data_file_name: str, report_file_name: str) -> None:
     process_total = {"supply": 0, "buy": 0}
-    with (open(f"{SRC}{data_file_name}", "r") as file_data,
+    with (open(f"{data_file_name}", "r") as file_data,
           open(report_file_name, "w") as report_file):
         for line in file_data:
             name_process, count = line.strip().split(",")
