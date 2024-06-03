@@ -12,6 +12,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 data[name] += int(amount)
         data["result"] = data["supply"] - data["buy"]
 
-        file_out.write(f"supply,{data["supply"]}\n")
-        file_out.write(f"buy,{data["buy"]}\n")
-        file_out.write(f"result,{data["result"]}\n")
+        file_out.write(f"supply,{data['supply']}\n")
+        file_out.write(f"buy,{data['buy']}\n")
+        file_out.write(f"result,{data['result']}\n")
