@@ -5,6 +5,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             k, v = line.split(",")
             data_dict[k] += int(v)
     with open(report_file_name, "w") as file:
-        file.write(f"supply,{data_dict["supply"]}\n")
-        file.write(f"buy,{data_dict["buy"]}\n")
-        file.write(f"result,{data_dict["supply"] - data_dict["buy"]}\n")
+        file.write(f'supply,{data_dict["supply"]}\n')
+        file.write(f'buy,{data_dict["buy"]}\n')
+        file.write(f'result,{data_dict["supply"] - data_dict["buy"]}\n')
