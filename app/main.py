@@ -19,7 +19,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             elif operation_type == "buy":
                 buy_total += amount
     result = supply_total - buy_total
-    with open(report_file_name, "w", newline='') as csvfile:
+    with open(report_file_name, "w", newline="") as csvfile:
         csvwriter = csv.writer(csvfile)
         csvwriter.writerow(["supply", supply_total])
         csvwriter.writerow(["buy", buy_total])
