@@ -19,6 +19,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         info["result"] = info["supply"] - info["buy"]
 
     with open(report_file_name, "w") as file:
-        file.write(f"supply, {info["supply"]}\n")
-        file.write(f"buy, {info["buy"]}\n")
-        file.write(f"result, {info["result"]}\n")
+        file.write(f'supply, {info["supply"]}\n')
+        file.write(f'buy, {info["buy"]}\n')
+        file.write(f'result, {info["result"]}\n')
