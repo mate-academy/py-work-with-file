@@ -17,3 +17,6 @@ def create_report(data_file: str, report_file_name: str) -> None:
         file.write(f'buy,{report["buy"]}\n')
         result = report["supply"] - report["buy"]
         file.write(f"result,{result}\n")
+
+
+create_report("apples.csv", "apples_report.csv")
