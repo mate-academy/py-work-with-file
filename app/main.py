@@ -7,6 +7,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             result[type_info] = result.get(type_info, 0) + int(amount)
 
     with open(report_file_name, "a") as report_file:
-        report_file.write(f"supply,{result["supply"]}\n")
-        report_file.write(f"buy,{result["buy"]}\n")
-        report_file.write(f"result,{result["supply"] - result["buy"]}\n")
+        report_file.write("supply," + f"{result["supply"]}\n")
+        report_file.write("buy," + f"{result["buy"]}\n")
+        report_file.write("result," + f"{result["supply"] - result["buy"]}\n")
