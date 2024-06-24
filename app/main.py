@@ -1,5 +1,5 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    file_open = open(f"../{data_file_name}")
+    file_open = open(f"./{data_file_name}")
     table = file_open.read()
     table = table.split("\n")
     supply = 0
