@@ -5,6 +5,7 @@ from typing import Optional, Type
 
 import pytest
 
+
 from app.main import create_report
 
 
