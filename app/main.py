@@ -13,13 +13,10 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     stuff["result"] = stuff["supply"] - stuff["buy"]
     origin.close()
 
-    new_file.write("supply,")
-    new_file.write(f"{stuff["supply"]}\n")
+    result_string = ("supply," + str(stuff["supply"]) + "\nbuy,"
+                     + str(stuff["buy"]) + "\nresult,"
+                     + str(stuff["result"]) + "\n")
 
-    new_file.write("buy,")
-    new_file.write(f"{stuff["buy"]}\n")
-
-    new_file.write("result,")
-    new_file.write(f"{stuff["result"]}\n")
+    new_file.write(result_string)
 
     new_file.close()
