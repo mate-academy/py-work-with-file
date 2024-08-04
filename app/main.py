@@ -14,5 +14,5 @@ def create_report(data_file_name: str, report_file_name: str) -> str:
 
     with open(report_file_name, "w") as file:
         for key, value in account.items():
-            file.write(f"{key}, {value}\n")
+            file.writelines(f"{key},{value}\n")
     return f"Report created: {report_file_name}"
