@@ -14,6 +14,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         result = supply - buy
 
     with open(report_file_name, "w") as second_f:
-        second_f.write(f"supply, {supply}\n")
-        second_f.write(f"buy, {buy}\n")
-        second_f.write(f"result, {result}\n")
+        second_f.write(f"supply,{supply}\n")
+        second_f.write(f"buy,{buy}\n")
+        second_f.write(f"result,{result}\n")
