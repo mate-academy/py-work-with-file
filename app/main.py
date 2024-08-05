@@ -1,5 +1,5 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    file_opener = open(data_file_name, "r")
+    file_opener = open("../" + data_file_name, "r")
     sum_supply = 0
     sum_buy = 0
     for line in file_opener:
