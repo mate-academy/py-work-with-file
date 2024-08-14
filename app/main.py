@@ -1,21 +1,15 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    data_file = open(data_file_name, "r")
+    with (open(data_file_name, "r") as data_file,
+          open(report_file_name, "w") as report_file):
+        report = [line.rstrip("\n").split(",") for line in data_file]
 
-    data = [line.replace("\n", "").split(",") for line in data_file]
+        result = {}
+        for item in report:
+            if item[0] not in result:
+                result[item[0]] = int(item[1])
+                continue
+            result[item[0]] += int(item[1])
 
-    result_dict = {}
-
-    for el in data:
-        if el[0] in result_dict:
-            result_dict[el[0]] += int(el[1])
-        else:
-            result_dict[el[0]] = int(el[1])
-
-    data_file.close()
-    o_file = open(report_file_name, "x")
-
-    o_file.write("supply," + f"{result_dict["supply"]}\n")
-    o_file.write("buy," + f"{result_dict["buy"]}\n")
-    o_file.write("result," + f"{result_dict["supply"] - result_dict["buy"]}\n")
-
-    o_file.close()
+        report_file.write("supply," + f'{result["supply"]}\n')
+        report_file.write("buy," + f'{result["buy"]}\n')
+        report_file.write("result," + f'{result["supply"] - result["buy"]}\n')
