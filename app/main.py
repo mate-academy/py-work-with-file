@@ -12,6 +12,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             buy += int(line_list[-1])
     result = supply - buy
     report.write(f"supply,{supply}\nbuy,{buy}\nresult,{result}\n")
+    working_file.close()
+    report.close()
 
 
 create_report("apples.csv", "apples_report.csv")
