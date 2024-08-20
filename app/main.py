@@ -5,7 +5,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         for line in file.readlines():
             line = line.strip()
             if line:
-                operation_type, amount = line.split(',')
+                operation_type, amount = line.split(",")
                 amount = int(amount)
                 if operation_type == "supply":
                     supply_total += amount
