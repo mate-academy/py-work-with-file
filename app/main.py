@@ -8,6 +8,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 result[cell[0]] += int(cell[1])
             else:
                 result[cell[0]] = int(cell[1])
-        file_out.writelines(f"supply,{result["supply"]}\n")
-        file_out.writelines(f"buy,{result["buy"]}\n")
-        file_out.writelines(f"result,{result["supply"] - result["buy"]}\n")
+        file_out.writelines(f'supply,{result["supply"]}\n')
+        file_out.writelines(f'buy,{result["buy"]}\n')
+        file_out.writelines(f'result,{result["supply"] - result["buy"]}\n')
