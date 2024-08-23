@@ -11,11 +11,11 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 data_dict[key] = value
 
     with open(report_file_name, "w") as out_f:
-        out_f.write(f"supply, {data_dict["supply"]}\n")
-        out_f.write(f"buy, {data_dict["buy"]}\n")
+        out_f.write("supply," + str(data_dict["supply"]) + "\n")
+        out_f.write("buy," + str(data_dict["buy"]) + "\n")
         result = int(data_dict["supply"]) - int(data_dict["buy"])
-        out_f.write(f"result, {result}\n")
+        out_f.write(f"result,{result}\n")
 
 
-create_report("apples.csv",
-              "apples_report.csv")
+create_report("../tests/apples.csv",
+              "../tests/apples_report.csv")
