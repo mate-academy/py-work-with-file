@@ -1,19 +1,18 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    file = open("../" + data_file_name)
+    data_file = open("../" + data_file_name)
 
     supply = 0
     buy = 0
-    for line in file:
+    for line in data_file:
         data = line.split(",")
         if data[0] == "supply":
             supply += int(data[1])
         elif data[0] == "buy":
             buy += int(data[1])
 
-    file.close()
+    data_file.close()
 
-    report_file = open(report_file_name, 'w')
-    report_file.write(f"supply,{supply}\nbuy,{buy}\nresult,{supply - buy}\n")
-
-
-
+    report_file = open(report_file_name, "w")
+    report_file.write(f"supply,{supply}\n")
+    report_file.write(f"buy,{buy}\n")
+    report_file.write(f"result,{supply - buy}\n")
