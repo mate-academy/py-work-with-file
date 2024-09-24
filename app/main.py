@@ -14,4 +14,4 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         out_f.write("supply," + str(data_dict["supply"]) + "\n")
         out_f.write("buy," + str(data_dict["buy"]) + "\n")
         result = int(data_dict["supply"]) - int(data_dict["buy"])
-        out_f.write(f"result, {result}\n")
+        out_f.write(f"result,{result}\n")
