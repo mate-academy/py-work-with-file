@@ -9,9 +9,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         report_dict[action] = int(value)
     report_dict["result"] = report_dict["supply"] - report_dict["buy"]
     data.close()
-    report_str = ("supply" + "," + f"{report_dict["supply"]}\nbuy" + ","
-                  + f"{report_dict["buy"]}\nresult" + ","
-                  + f"{report_dict["result"]}\n")
+    report_str = ("supply" + "," + f'{report_dict["supply"]}\nbuy' + ","
+                  + f'{report_dict["buy"]}\nresult' + ","
+                  + f'{report_dict["result"]}\n')
     report_file = open(report_file_name, "w")
     report_file.write(report_str)
     report_file.close()
