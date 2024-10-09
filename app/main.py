@@ -8,7 +8,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
 def collect_data_from_csv(file_name: str) -> dict:
     data = {}
-    path = os.path.abspath("..")
+    path = os.path.abspath(".")
     with open(f"{path}\\{file_name}", "r") as data_file:
         for line in data_file:
             line_list = line.split(",")
@@ -22,6 +22,6 @@ def collect_data_from_csv(file_name: str) -> dict:
 
 def write_data_to_csv(file_name: str, data: dict) -> None:
     with open(file_name, "w") as report_file:
-        report_file.write(f"supply,{data.get("supply")}\n"
-                          f"buy,{data.get("buy")}\n"
-                          f"result,{data.get("result")}\n")
+        report_file.write(f"supply,{data.get("supply")}\n" # noqa E231
+                          f"buy,{data.get("buy")}\n" # noqa E231
+                          f"result,{data.get("result")}\n") # noqa E231
