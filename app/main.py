@@ -8,7 +8,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
 def collect_data_from_csv(file_name: str) -> dict:
     data = {}
-    path = os.path.abspath(".")
+    path = os.path.abspath("..")
     with open(f"{path}\\{file_name}", "r") as data_file:
         for line in data_file:
             line_list = line.split(",")
