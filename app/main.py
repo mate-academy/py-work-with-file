@@ -12,8 +12,6 @@ def create_report(data_file_name: str,
 
     report_file_name.write(f"supply,{res_dict["supply"]}\n"
                            f"buy, {res_dict["buy"]}\n"
-                           f"result, {(res_dict["supply"] - res_dict["buy"])}")
+                           f"result, {res_dict["supply"] - res_dict["buy"]}")
     data_file_name.close()
     report_file_name.close()
-
-
