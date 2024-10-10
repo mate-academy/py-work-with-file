@@ -1,4 +1,3 @@
-# write your code here
 import csv
 
 
