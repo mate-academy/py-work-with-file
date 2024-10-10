@@ -2,23 +2,29 @@ import csv
 
 
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    supply_total = 0
-    buy_total = 0
+    report_file_dict = {}
 
     with open(data_file_name, "r") as data_file:
-        reader = csv.reader(data_file)
-        for row in reader:
-            if len(row) == 0:
-                continue
-            operation, amount = row[0], int(row[1])
-            if operation == "supply":
-                supply_total += amount
-            elif operation == "buy":
-                buy_total += amount
+        csv_reader = csv.reader(data_file)
 
-    result = supply_total - buy_total
+        for line in csv_reader:
+            if len(line) != 2:
+                continue
+
+            operation, amount = line
+            if report_file_dict.get(operation):
+                report_file_dict[operation] = (
+                    int(report_file_dict[operation]) + int(amount)
+                )
+            else:
+                report_file_dict[operation] = int(amount)
+
+    report_file_dict["result"] = (
+        report_file_dict.get("supply", 0) - report_file_dict.get("buy", 0)
+    )
 
     with open(report_file_name, "w") as report_file:
-        report_file.write(f"supply, {supply_total}\n")
-        report_file.write(f"buy, {buy_total}\n")
-        report_file.write(f"result, {result}\n")
+        operations_order = ["supply", "buy", "result"]
+        for operation in operations_order:
+            report_file.write(f"{operation},"
+                              f"{report_file_dict.get(operation, 0)}\n")
