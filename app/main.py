@@ -9,9 +9,10 @@ def create_report(data_file_name: str,
             res_dict[mn[0]] = int(mn[1])
         else:
             res_dict[mn[0]] += int(mn[1])
-
-    report_file_name.write(f"supply,{res_dict["supply"]}\n"
-                           f"buy, {res_dict["buy"]}\n"
-                           f"result, {res_dict["supply"] - res_dict["buy"]}")
+    supply = res_dict["supply"]
+    buy = res_dict["buy"]
+    report_file_name.write(f"supply,{supply}\n"
+                           f"buy, {buy}\n"
+                           f"result, {supply - buy}")
     data_file_name.close()
     report_file_name.close()
