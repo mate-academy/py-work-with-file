@@ -1,5 +1,4 @@
-def create_report(data_file_name: str,
-                  report_file_name: str) -> None:
+def create_report(data_file_name: str, report_file_name: str) -> None:
     supply = 0
     buy = 0
     with open(data_file_name) as f:
@@ -10,7 +9,5 @@ def create_report(data_file_name: str,
             else:
                 buy += int(value[1])
     with open(report_file_name, "w") as f:
-        f.write(f"supply,{supply}\nbuy,{buy}\nresult,{supply-buy}\n")
+        f.write(f"supply,{supply}\nbuy,{buy}\nresult,{supply - buy}\n")
         f.close()
-
-
