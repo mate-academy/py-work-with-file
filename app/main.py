@@ -7,7 +7,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             data_dict.update({name: data_dict.get(name, 0) + int(count)})
 
     with open(report_file_name, "w") as file:
-        file.write(f"supply,{data_dict.get("supply")}\n") # noqa
-        file.write(f"buy,{data_dict.get("buy")}\n") # noqa
+        supply = data_dict.get("supply")
+        file.write(f"supply,{supply}\n") # noqa
+        buy = data_dict.get("buy")
+        file.write(f"buy,{buy}\n") # noqa
         result = data_dict.get("supply") - data_dict.get("buy")
         file.write(f"result,{result}\n") # noqa
