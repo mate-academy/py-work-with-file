@@ -1,4 +1,4 @@
-def create_report(data_file_name: str, report_file_name: str):
+def create_report(data_file_name: str, report_file_name: str) -> None:
     with open(data_file_name, "r") as new_file:
         lines = new_file.readlines()
     supplies = sum([int(line.split(",")[1]) for line in lines if line.split(",")[0] == "supply"])
