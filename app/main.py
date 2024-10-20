@@ -1,6 +1,6 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
     data_report = {"supply": 0, "buy": 0, "result": 0}
-    with open(f"./../{data_file_name}") as file_to_read:
+    with open(data_file_name) as file_to_read:
         for line in file_to_read:
             transaction_amount = line.split(",")
             data_report[transaction_amount[0]] += int(transaction_amount[1])
