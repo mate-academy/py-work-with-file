@@ -14,7 +14,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                    + f"{supply}\nbuy" + ","
                    + f"{buy}\nresult" + ","
                    + f"{supply - buy}\n")
-    report = open(report_file_name, 'w')
+    report = open(report_file_name, "w")
     report.write(report_data)
     data.close()
     report.close()
