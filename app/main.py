@@ -9,9 +9,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 data_dct[action] = int(amount)
 
     with open(report_file_name, "w") as output_file:
-        output_file.write(f"supply,{str(data_dct["supply"])}\n")
-        output_file.write(f"buy,{str(data_dct["buy"])}\n")
+        output_file.write(f"supply,{data_dct["supply"]}\n")
+        output_file.write(f"buy,{data_dct["buy"]}\n")
         output_file.write(
-            f"result,{str(data_dct["supply"] - data_dct["buy"])}\n"
+            f"result,{data_dct["supply"] - data_dct["buy"]}\n"
         )
         output_file.write("")
