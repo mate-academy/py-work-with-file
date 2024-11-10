@@ -13,7 +13,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 report_dict[item[0]] = int(item[1])
             else:
                 report_dict[item[0]] += int(item[1])
+        supply_value = report_dict["supply"]
         result = report_dict["supply"] - report_dict["buy"]
-        file_out.write(f"supply,{report_dict["supply"]}\n")
+        file_out.write(f"supply,{supply_value}\n")
         file_out.write(f"buy,{report_dict["buy"]}\n")
         file_out.write(f"result,{result}\n")
