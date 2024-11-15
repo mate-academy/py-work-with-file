@@ -27,7 +27,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     result = totals["supply"] - totals["buy"]
 
     # Open and write the output CSV file with newline='' to avoid extra lines
-    with open(report_file_name, mode="w", newline='') as outfile:
+    with open(report_file_name, mode="w", newline="") as outfile:
         writer = csv.writer(outfile)
         # Write the totals and result to the file
         writer.writerow(["supply", totals["supply"]])
