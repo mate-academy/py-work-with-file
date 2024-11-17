@@ -18,6 +18,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     report.write(
         f"supply,{data_dict['supply']}\n"
         f"buy,{data_dict['buy']}\n"
-        f"result,{data_dict['supply'] - data_dict["buy"]}\n"
+        f"result,{data_dict['supply'] - data_dict['buy']}\n"
     )
     report.close()
