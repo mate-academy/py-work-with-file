@@ -12,6 +12,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             corrected_data_file = data_file.split(",")
             result[corrected_data_file[0]] += int(corrected_data_file[1])
 
-        file_out.write(f"supply, {result["supply"]}\n"
-                       f"buy, {result["buy"]}\n"
-                       f"result, {result["supply"] - result["buy"]}\n")
+        file_out.write(f"supply,{result['supply']}\n"
+                       f"buy,{result['buy']}\n"
+                       f"result,{result['supply'] - result['buy']}\n")
