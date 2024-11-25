@@ -1,6 +1,5 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    file_r = open("C:\\Mate-Phyton-Projects\\py-work-with-file\\"
-                  + data_file_name)
+    file_r = open(data_file_name)
 
     supply_count = 0
     buy_count = 0
