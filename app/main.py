@@ -2,10 +2,6 @@ import csv
 
 
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    """
-    Reads data from a CSV file and generates a report with totals for supply and buy,
-    and their difference, which is written to a new file.
-    """
     # Initialize counters for supply and buy
     supply_total = 0
     buy_total = 0
