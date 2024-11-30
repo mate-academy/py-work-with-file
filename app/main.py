@@ -9,9 +9,12 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             key, value = line.split(",")
             report[key] += int(value)
 
+    supply = report["supply"]
+    buy = report["buy"]
+    result = report["supply"] - report["buy"]
+
     with open(report_file_name, "w") as report_file:
-        report_file.write(f"supply, {report["supply"]}\n".replace(" ", ""))
-        report_file.write(f"buy, {report["buy"]}\n".replace(" ", ""))
+        report_file.write(f"supply, {supply}\n")
+        report_file.write(f"buy, {buy}\n")
         report_file.write(
-            f"result, {report["supply"] - report["buy"]}\n".replace(" ", "")
-        )
+            f"result, {result}\n")
