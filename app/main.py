@@ -13,4 +13,4 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     file2 = open(report_file_name, "w")
     for text, value in data_file.items():
         file2.write(f"{text},{value}\n")
-    file2.write(f"result,{data_file["supply"] - data_file["buy"]}\n")
+    file2.write(f'result,{data_file["supply"] - data_file["buy"]}\n')
