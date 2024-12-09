@@ -11,9 +11,10 @@ def create_report(data_file_name: str,
         else:
             dictionary[line_item[0]] = line_item[1]
     dictionary["result"] = dictionary["supply"] - dictionary["buy"]
+    sup = dictionary["supply"]
     result = open(report_file_name, "w")
     result.write(
-        f"supply,{dictionary["supply"]}\nbuy,"
+        f"supply,{sup}\nbuy,"
         f"{dictionary["buy"]}\n"
         f"result,{dictionary["result"]}\n"
     )
