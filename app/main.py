@@ -1,5 +1,5 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    with open(f"{data_file_name}.csv", "r") as csv:
+    with open(data_file_name, "r") as csv:
         csv_list = csv.readlines()
         supply = 0
         buy = 0
@@ -16,7 +16,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                         buy += int(
                             csv_list[cs][csv_list[cs].index(chair) + 1:])
         result = supply - buy
-        with open(f"{report_file_name}.csv", "w+") as new_csv:
-            new_csv.write(f"supply, {supply}\n")
-            new_csv.write(f"buy, {buy}\n")
-            new_csv.write(f"result, {result}\n")
+        with open(report_file_name, "w+") as new_csv:
+            new_csv.write("supply," + f"{supply}\n")
+            new_csv.write("buy," + f"{buy}\n")
+            new_csv.write("result," + f"{result}\n")
