@@ -10,4 +10,4 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             buy += int(word[1])
 
     with open(report_file_name, "w") as f:
-        f.write(f"supply,{supply}\nbuy,{buy}\nresult,{supply - buy}")
+        f.write(f"supply,{supply}\nbuy,{buy}\nresult,{supply - buy}\n")
