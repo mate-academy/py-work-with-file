@@ -3,8 +3,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     source_dict = {}
     for line in source.readlines():
         line = line.strip().split(",")
-        source_dict[line[0]] = (
-                source_dict.setdefault(line[0], 0) + int(line[1]))
+        key = line[0]
+        value = int(line[1])
+        source_dict[key] = source_dict.setdefault(key, 0) + value
     source.close()
 
     report = open(report_file_name, "w")
