@@ -7,9 +7,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     source.close()
 
     report = open(report_file_name, "w")
-    report.write(f"supply,{source_dict.get("supply")}\n")
-    report.write(f"buy,{source_dict.get("buy")}\n")
+    report.write(f"supply,{source_dict.get('supply')}\n")
+    report.write(f"buy,{source_dict.get('buy')}\n")
     report.write(
-        f"result,{source_dict.get("supply") - source_dict.get("buy")}\n"
+        f"result,{source_dict.get('supply') - source_dict.get('buy')}\n"
     )
     report.close()
