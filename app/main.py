@@ -5,9 +5,9 @@ def create_report(date_file_name: str, report_file_name: str) -> None:
     for line in date_file:
         name = line.split(",")
         if "supply" in name:
-            supply += name[1]
+            supply += int(name[1])
         elif "buy" in name:
-            buy += name[1]
+            buy += int(name[1])
 
     with open(report_file_name, "w"):
         report_file_name.write(f"supply, {supply}\n"
