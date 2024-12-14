@@ -1,4 +1,4 @@
-def craeate_report(date_file_name: str, report_file_name: str) -> None:
+def craete_report(date_file_name: str, report_file_name: str) -> None:
     date_file = open(date_file_name, "r")
     supply = 0
     buy = 0
