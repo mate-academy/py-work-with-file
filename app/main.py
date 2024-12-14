@@ -8,8 +8,9 @@ def create_report(date_file_name: str, report_file_name: str) -> None:
             supply += int(name[1])
         elif "buy" in name:
             buy += int(name[1])
-
-    with open(report_file_name, "w"):
-        report_file_name.write(f"supply, {supply}\n"
-                               f"buy, {buy}\n"
-                               f"result, {supply - buy}")
+    date_file.close()
+    new_file_name = open(report_file_name, "w")
+    new_file_name.write(f"supply, {supply}\n"
+                        f"buy, {buy}\n"
+                        f"result, {supply - buy}")
+    new_file_name.close()
