@@ -4,7 +4,7 @@ import csv
 def create_report(data_file_name: str, report_file_name: str) -> None:
     result_dict = {"supply": 0, "buy": 0}
     with open(
-        f"D:\GitHubTasks\py-work-with-file\/{data_file_name}",
+        data_file_name,
         "r",
     ) as file:
         reader = csv.reader(file)
