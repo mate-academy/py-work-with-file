@@ -5,15 +5,15 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         "result": 0
     }
 
-    file = open(data_file_name, "r")
-    for line in file:
+    data_file = open(data_file_name, "r")
+    for line in data_file:
         name = line.strip().split(",")
         data_dict[name[0]] += int(name[1])
 
-    file.close()
+    data_file .close()
 
     data_dict["result"] = data_dict["supply"] - data_dict["buy"]
 
-    with open(report_file_name, "w") as file:
+    with open(report_file_name, "w") as report_file:
         for key, value in data_dict.items():
-            file.write(f"{key},{value}")
+            report_file.write(f"{key},{value}")
