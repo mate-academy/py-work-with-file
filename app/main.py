@@ -16,9 +16,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
     report = open(report_file_name, "w")
     if calculations:
-        report.write("supply," + f"{calculations["supply"]}\n")
-        report.write("buy," + f"{calculations["buy"]}\n")
+        report.write("supply," + f'{calculations["supply"]}\n')
+        report.write("buy," + f'{calculations["buy"]}\n')
         report.write(
-            "result," + f"{calculations["supply"] - calculations["buy"]}\n"
+            "result," + f'{calculations["supply"] - calculations["buy"]}\n'
         )
     report.close()
