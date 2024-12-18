@@ -1,4 +1,4 @@
-# Work with files 
+[# Work with files 
 
 Implement function `create_report` 
 which will make a report using data from the market after a working day. 
@@ -52,3 +52,4 @@ Note:
 The last line of the file may be empty and should not be processed
 
 Please use terminal here to run script/tests, to avoid file path errors
+]()
