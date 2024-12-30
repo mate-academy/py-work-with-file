@@ -14,6 +14,9 @@ def create_report(data_file_name: str, report_file_name: str) -> int:
 
     output["result"] = output["supply"] - output["buy"]
 
-    return write_file.write(f"supply,{output["supply"]}\n"
-                            f"buy,{output["buy"]}\n"
-                            f"result,{output["result"]}\n")
+    result_lines = [
+        "supply," + str(output["supply"]),
+        "buy," + str(output["buy"]),
+        "result," + str(output["result"])
+    ]
+    return write_file.write("\n".join(result_lines) + "\n")
