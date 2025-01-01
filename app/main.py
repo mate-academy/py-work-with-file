@@ -1,23 +1,23 @@
+import csv
+
+
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    content_summary: dict = {}
+    supply = 0
+    buy = 0
 
-    with open(f"{data_file_name}", "r") as file_in:
-        lines = file_in.readlines()
-
-        for line in lines:
-            if not line:
+    with open(data_file_name, "r") as file:
+        reader = csv.reader(file)
+        for row in reader:
+            if not row:
                 continue
-            data = line.split(",")
-            if data[0] in content_summary:
-                content_summary[data[0]] += int(data[1].strip())
-            else:
-                content_summary[data[0]] = int(data[1].strip())
+            operation, amount = row[0], int(row[1])
+            if operation == "supply":
+                supply += amount
+            if operation == "buy":
+                buy += amount
 
-    content_summary["result"] = (content_summary["supply"]
-                                 - content_summary["buy"])
+    result = supply - buy
+    report_content = [f"supply,{supply}\n", f"buy,{buy}\n", f"result,{result}\n"]
 
-    with (open(report_file_name, "w") as file_out):
-        report_content = (f"supply,{content_summary['supply']}\n"
-                          + f"buy,{content_summary['buy']}\n"
-                          + f"result,{content_summary['result']}\n")
-        file_out.write(report_content)
+    with open(report_file_name, "w") as file:
+        file.writelines(report_content)
