@@ -17,7 +17,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 buy += amount
 
     result = supply - buy
-    report_content = [f"supply,{supply}\n", f"buy,{buy}\n", f"result,{result}\n"]
+    report_content = [
+        f"supply,{supply}\n", f"buy,{buy}\n", f"result,{result}\n"
+    ]
 
     with open(report_file_name, "w") as file:
         file.writelines(report_content)
