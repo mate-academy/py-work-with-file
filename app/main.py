@@ -9,7 +9,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             f_key, f_value = line.split(",")
             dict_values[f_key] += int(f_value)
 
+    dict_values["result"] = dict_values["supply"] - dict_values["buy"]
     with open(report_file_name, "a") as report:
-        report.write(f"supply,{dict_values["supply"]}\n")
-        report.write(f"buy,{dict_values["buy"]}\n")
-        report.write(f"result,{dict_values["supply"] - dict_values["buy"]}\n")
+        for key, value in dict_values.items():
+            report.write(f"{key},{value}\n")
