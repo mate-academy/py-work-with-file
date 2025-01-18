@@ -4,6 +4,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     for line in f.readlines():
         data[line[0: line.index(",")]] += int(line[line.index(",") + 1:])
     data["result"] = data["supply"] - data["buy"]
-    file = open(report_file_name, "w")
+    files = open(report_file_name, "w")
     for key in data:
-        file.write(key + "," + str(data[key]) + "\n")
+        files.write(key + "," + str(data[key]) + "\n")
