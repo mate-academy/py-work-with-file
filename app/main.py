@@ -19,9 +19,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         result = total_supply - total_buy
 
         with open(report_file_name, "w") as report_file:
-            report_file.write(f"supply, {total_supply}\n")
-            report_file.write(f"buy, {total_buy}\n")
-            report_file.write(f"result, {result}\n")
+            report_file.write(f"supply,{total_supply}\n")
+            report_file.write(f"buy,{total_buy}\n")
+            report_file.write(f"result,{result}\n")
 
         print(f"Report created: {report_file_name}")
 
