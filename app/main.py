@@ -5,9 +5,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     with open(data_file_name, "r") as file:
         reader = csv.DictReader(file)
         data = list(reader)
-    operations ={}
+        operations ={}
     for row in data:
-        operation_type  = row[0]
+        operation_type = row[0]
         amount = int(row[1])
         if operation_type in operations:
             operations[operation_type] += amount
