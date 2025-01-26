@@ -50,3 +50,5 @@ Explanation:
 Note:
 
 The last line of the file may be empty and should not be processed
+
+Please use terminal here to run script/tests, to avoid file path errors
