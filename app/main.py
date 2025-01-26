@@ -27,7 +27,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
     with open(report_file_name, "w") as report_file:
         for key, value in file_data.items():
-            report = f'{key},{value}\n'
+            report = f"{key},{value}\n"
             report_file.write(report)
 
     data_file.close()
