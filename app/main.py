@@ -1,19 +1,23 @@
-# write your code here
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    with (open(data_file_name, "r") as data_f,
-          open(report_file_name, "a") as report_f):
-        actions_dict = {}
-        actions = []
-        lines = data_f.readlines()
-        for line in lines:
-            words = line.strip().split(",")
-            actions.append(words)
-        for action in actions:
-            if not action[0] in actions_dict:
-                actions_dict[f"{action[0]}"] = int(action[1])
-            else:
-                actions_dict[f"{action[0]}"] += int(action[1])
-        report_f.write(f"supply,{actions_dict["supply"]}\n")
-        report_f.write(f"buy,{actions_dict["buy"]}\n")
-        report_f.write(f"result,{actions_dict["supply"]
-                                 - actions_dict["buy"]}\n")
+    supply_total = 0
+    buy_total = 0
+
+    with open(data_file_name, "r") as file:
+        for line in file:
+            line = line.strip()
+            if line:
+                parts = line.split(",")
+                if len(parts) == 2:
+                    operation, amount = parts
+                    amount = int(amount)
+                    if operation == "supply":
+                        supply_total += amount
+                    elif operation == "buy":
+                        buy_total += amount
+
+    result = supply_total - buy_total
+
+    with open(report_file_name, "w") as report:
+        report.write("supply," + str(supply_total) + "\n")
+        report.write("buy," + str(buy_total) + "\n")
+        report.write("result," + str(result) + "\n")
