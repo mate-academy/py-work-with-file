@@ -21,4 +21,3 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         report.write("supply," + str(supply_total) + "\n")
         report.write("buy," + str(buy_total) + "\n")
         report.write("result," + str(result) + "\n")
-  
