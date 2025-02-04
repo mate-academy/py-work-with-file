@@ -16,7 +16,7 @@ def create_report(data_file_name: str, report_file_name: str) -> Any:
                 supply_total += amount
             elif operation == "buy":
                 buy_total += amount
- 
+
     result = supply_total - buy_total
 
     with open(report_file_name, mode="w", newline="") as file:
