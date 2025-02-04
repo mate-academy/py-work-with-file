@@ -6,7 +6,7 @@ def create_report(data_file_name: str, report_file_name: str) -> Any:
     supply_total = 0
     buy_total = 0
     
-    with open(data_file_name, mode='r', newline='') as file:
+    with open(data_file_name, mode="r", newline="") as file:
         reader = csv.reader(file)
         for row in reader:
             if not row:
@@ -19,7 +19,7 @@ def create_report(data_file_name: str, report_file_name: str) -> Any:
     
     result = supply_total - buy_total
     
-    with open(report_file_name, mode='w', newline='') as file:
+    with open(report_file_name, mode="w", newline="") as file:
         writer = csv.writer(file)
         writer.writerow(["supply", supply_total])
         writer.writerow(["buy", buy_total])
