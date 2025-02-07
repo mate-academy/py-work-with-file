@@ -10,7 +10,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     datafile.close()
 
     reportfile = open(report_file_name, "w")
-    reportfile.write(f"supply,{result_dict["supply"]}\n")
-    reportfile.write(f"buy,{result_dict["buy"]}\n")
-    reportfile.write(f"result,{result_dict["supply"] - result_dict["buy"]}\n")
+    supply = result_dict["supply"]
+    buy = result_dict["buy"]
+    reportfile.write(f"supply,{supply}\n")
+    reportfile.write(f"buy,{buy}\n")
+    reportfile.write(f"result,{supply - buy}\n")
     reportfile.close()
