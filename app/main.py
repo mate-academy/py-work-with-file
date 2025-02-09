@@ -7,10 +7,13 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     with open(data_file_name, mode="r") as data_file:
         reader = csv.reader(data_file)
         for row in reader:
-            if not row:
+            if not row or len(row) < 2:
                 continue
-            data_name, quantity = row
-            quantity = int(quantity)
+            data_name, quantity = row[0].strip(), row[1].strip()
+            try:
+                quantity = int(quantity)
+            except ValueError:
+                continue
             if data_name == "buy":
                 buy_total += quantity
             elif data_name == "supply":
