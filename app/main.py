@@ -17,4 +17,4 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         for key, value in report.items():
             file_out.write(f"{key},{value}\n")
 
-        file_out.write(f"result,{report["supply"] - report["buy"]}\n")
+        file_out.write(f"result,{report['supply'] - report['buy']}\n")
