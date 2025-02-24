@@ -7,7 +7,7 @@ def create_report(
     Args:
         data_file_name: Назва вхідного CSV файлу.
         report_file_name: Назва файлу звіту,
-         в який потрібно записати результат.
+        в який потрібно записати результат.
     """
     supply_total = 0
     buy_total = 0
@@ -29,26 +29,23 @@ def create_report(
                         elif operation_type == "buy":
                             buy_total += amount
                     except ValueError:
-                        error_message = (
-                            f"Помилка: Неможливо перетворити "
-                            f"\"{amount_str}\" на ціле число."
-                        )
-                        print(error_message)
+                        print(f'Помилка: Неможливо перетворити "{amount_str}"'
+                              f' на ціле число.')
                 else:
                     error_message = (
-                        f"Помилка: Неправильний формат рядка: \"{line}\""
+                        f'Помилка: Неправильний формат рядка: "{line}"'
                     )
                     print(error_message)
 
         result = supply_total - buy_total
 
         with open(report_file_name, "w") as report_file:
-            report_file.write(f"supply,{supply_total}\n")
-            report_file.write(f"buy,{buy_total}\n")
-            report_file.write(f"result,{result}\n")
+            report_file.write(f"supply,{supply_total}\n")  # noqa: E231
+            report_file.write(f"buy,{buy_total}\n")  # noqa: E231
+            report_file.write(f"result,{result}\n")  # noqa: E231
 
     except FileNotFoundError:
-        print(f"Помилка: Файл \"{data_file_name}\" не знайдено.")
+        print(f'Помилка: Файл "{data_file_name}" не знайдено.')
     except Exception as e:
         print(f"Виникла помилка: {e}")
 
