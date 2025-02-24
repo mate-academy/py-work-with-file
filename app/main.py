@@ -29,8 +29,11 @@ def create_report(
                         elif operation_type == "buy":
                             buy_total += amount
                     except ValueError:
-                        print(f'Помилка: Неможливо перетворити "{amount_str}"'
-                              f' на ціле число.')
+                        error_message = (
+                            f"Помилка: Неможливо перетворити \"{amount_str}\""
+                            f" на ціле число."
+                        )
+                        print(error_message)
                 else:
                     error_message = (
                         f'Помилка: Неправильний формат рядка: "{line}"'
