@@ -30,8 +30,8 @@ def create_report(
                             buy_total += amount
                     except ValueError:
                         error_message = (
-                            f"Помилка: Неможливо перетворити \"{amount_str}\""
-                            f" на ціле число."
+                            f'Помилка: Неможливо перетворити "{amount_str}"'
+                            f' на ціле число.'
                         )
                         print(error_message)
                 else:
