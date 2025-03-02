@@ -10,7 +10,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     data_dict["result"] = data_dict["supply"] - data_dict["buy"]
     data.close()
     report = open(report_file_name, "w")
-    report.write(f"supply,{data_dict["supply"]}\n"  # noqa: E231
-                 f"buy,{data_dict["buy"]}\n"  # noqa: E231
-                 f"result,{data_dict["result"]}\n")  # noqa: E231
+    report.write(f"supply,{data_dict["supply"]}\n"
+                 f"buy,{data_dict["buy"]}\n"
+                 f"result,{data_dict["result"]}\n")
     report.close()
