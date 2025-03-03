@@ -1,21 +1,16 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
 
-    file1 = open(data_file_name, "r")
-    new_supply = 0
-    new_buy = 0
-
-    for row in file1:
-        row = row.strip().split(",")
-        if row[0] == "supply":
-            new_supply += int(row[1])
-        elif row[0] == "buy":
-            new_buy += int(row[1])
-
-    file1.close()
+    supply1 = 0
+    buy1 = 0
+    with open(data_file_name, "r") as file1:
+        for row in file1:
+            row = row.strip().split(",")
+            if row[0] == "supply":
+                supply1 += int(row[1])
+            if row[0] == "buy":
+                buy1 += int(row[1])
 
     with open(report_file_name, "w") as file2:
-        file2.write(f"supply, {new_supply}\n")
-        file2.write(f"buy, {new_buy}\n")
-        file2.write(f"result, {new_supply - new_buy}\n")
-
-    file2.close()
+        file2.writelines([f"supply,{supply1}\n",
+                          f"buy,{buy1}\n",
+                          f"result,{supply1 - buy1}\n"])
