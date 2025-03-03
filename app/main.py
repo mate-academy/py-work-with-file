@@ -12,7 +12,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     dict_with_values["result"] = result
     sorted(dict_with_values.items())
     writ = open(report_file_name, "w")
-    writ.write(f"supply,{dict_with_values["supply"]}\n"
-               f"buy,{dict_with_values["buy"]}\n"
-               f"result,{dict_with_values["result"]}\n")
+    writ.write(f"supply,{dict_with_values['supply']}\n"
+               f"buy,{dict_with_values['buy']}\n"
+               f"result,{dict_with_values['result']}\n")
     writ.close()
