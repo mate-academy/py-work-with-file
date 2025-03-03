@@ -14,6 +14,6 @@ def create_report(data_file: str, report_file_name: str) -> None:
                 new_dict[item[0]] += int(item[1])
 
     with open(report_file_name, "w") as f:
-        f.write(f"supply,{new_dict["supply"]}\n")
-        f.write(f"buy,{new_dict["buy"]}\n")
-        f.write(f"result,{new_dict["supply"] - new_dict["buy"]}\n")
+        f.write(f'supply,{new_dict["supply"]}\n')
+        f.write(f'buy,{new_dict["buy"]}\n')
+        f.write(f'result,{new_dict["supply"] - new_dict["buy"]}\n')
