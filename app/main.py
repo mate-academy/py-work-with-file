@@ -1,7 +1,7 @@
 import csv
 
 
-def create_report(data_file_name: str, report_file_name: str):
+def create_report(data_file_name: str, report_file_name: str) -> None:
     data_file = open(data_file_name, "r")
     supply = 0
     buy = 0
@@ -18,6 +18,6 @@ def create_report(data_file_name: str, report_file_name: str):
         ["buy", str(buy)],
         ["result", str(result)]
     ]
-    with open(report_file_name, 'w', newline='') as outfile:
+    with open(report_file_name, "w", newline='') as outfile:
         csv_writer = csv.writer(outfile)
         csv_writer.writerows(report_data)
