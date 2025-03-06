@@ -18,6 +18,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         ["buy", str(buy)],
         ["result", str(result)]
     ]
-    with open(report_file_name, "w", newline='') as outfile:
+    with open(report_file_name, "w", newline="") as outfile:
         csv_writer = csv.writer(outfile)
         csv_writer.writerows(report_data)
