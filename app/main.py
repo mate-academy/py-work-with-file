@@ -14,9 +14,9 @@ def create_report(data_file_name: str, report_file_name: str):
             buy += int(line_value[1])
     result = supply - buy
     report_data = [
-        ['supply', str(supply)],
-        ['buy', str(buy)],
-        ['result', str(result)]
+        ["supply", str(supply)],
+        ["buy", str(buy)],
+        ["result", str(result)]
     ]
     with open(report_file_name, 'w', newline='') as outfile:
         csv_writer = csv.writer(outfile)
