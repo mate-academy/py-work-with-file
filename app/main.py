@@ -9,5 +9,5 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     report_file = open(report_file_name, "w")
     for key in report:
         report_file.write(f"{key},{report[key]}\n")
-    report_file.write(f"result,{report["supply"] - report["buy"]}\n")
+    report_file.write(f'result,{report["supply"] - report["buy"]}\n')
     report_file.close()
