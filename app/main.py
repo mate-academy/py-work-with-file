@@ -3,7 +3,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
     data_file = open(data_file_name)
     for line in data_file:
-        report[line.split(",")[0]] = report[line.split(",")[0]] + int(line.split(",")[1])
+        report[line.split(",")[0]] = (
+                report[line.split(",")[0]] + int(line.split(",")[1])
+        )
     data_file.close()
 
     report_file = open(report_file_name, "w")
