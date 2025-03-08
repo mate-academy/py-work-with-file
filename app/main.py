@@ -11,10 +11,11 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             report_dict["buy"] += int(line.split(",")[1])
     data_file.close()
 
-    report_file.write(f"supply,{report_dict.get("supply")}\n")
-    report_file.write(f"buy,{report_dict.get("buy")}\n")
-    report_file.write(f"result,"
-                      f"{report_dict.get("supply") - report_dict.get("buy")}"
-                      f"\n")
+    supply = report_dict["supply"]
+    buy = report_dict["buy"]
+
+    report_file.write(f"supply,{supply}\n")
+    report_file.write(f"buy,{buy}\n")
+    report_file.write(f"result,{supply - buy}\n")
 
     report_file.close()
