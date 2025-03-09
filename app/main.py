@@ -19,6 +19,7 @@ def main(data_file_name: str, report_file_name: str) -> None:
     # Вычисление результата
     result: int = supply_total - buy_total
 
+    # Запись отчета в новый файл
     with open(report_file_name, "w", encoding="utf-8") as file:
         file.write(f"supply,{supply_total}\n")
         file.write(f"buy,{buy_total}\n")
