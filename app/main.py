@@ -1,25 +1,25 @@
 import csv
 
 def main(data_file_name: str, report_file_name: str) -> None:
-    """Reads a CSV file, processes supply and buy operations, and writes a report."""
+    """Читает CSV файл, обрабатывает операции поставки и покупки и записывает отчет."""
     supply_total: int = 0
     buy_total: int = 0
 
-    # Read data from CSV file
+    # Чтение данных из CSV файла
     with open(data_file_name, "r", encoding="utf-8") as file:
         reader = csv.reader(file)
         for row in reader:
-            if len(row) == 2:  # Ensure the row has two elements
+            if len(row) == 2:  # Убедитесь, что строка содержит два элемента
                 operation, amount = row
                 if operation == "supply":
                     supply_total += int(amount)
                 elif operation == "buy":
                     buy_total += int(amount)
 
-    # Calculate result
+    # Вычисление результата
     result: int = supply_total - buy_total
 
-    # Write report to new file
+    # Запись отчета в новый файл
     with open(report_file_name, "w", encoding="utf-8") as file:
         file.write(f"supply,{supply_total}\n")
         file.write(f"buy,{buy_total}\n")
