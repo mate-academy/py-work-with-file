@@ -24,4 +24,3 @@ def main(data_file_name: str, report_file_name: str) -> None:
         file.write(f"supply,{supply_total}\n")
         file.write(f"buy,{buy_total}\n")
         file.write(f"result,{result}\n")
-
