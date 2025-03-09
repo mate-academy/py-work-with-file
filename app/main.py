@@ -1,7 +1,7 @@
 import csv
 
+
 def main(data_file_name: str, report_file_name: str) -> None:
-    """Читает CSV файл, обрабатывает операции поставки и покупки и записывает отчет."""
     supply_total: int = 0
     buy_total: int = 0
 
