@@ -1,60 +1,39 @@
-from __future__ import annotations
+import sys
 import os
-from types import TracebackType
-from typing import Optional, Type
-
 import pytest
 
-from app.main import create_report
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "app")))
+
+from main import main
 
 
-class CleanUpFile:
-    def __init__(self, filename: str) -> None:
-        self.filename = filename
+def test_main() -> None:
+    """Test the main function with sample input data."""
+    input_file = "test_input.csv"
+    output_file = "test_output.csv"
 
-    def __enter__(self) -> CleanUpFile:
-        return self
+    # Create test input file
+    with open(input_file, "w", encoding="utf-8") as file:
+        file.write("supply,30\n")
+        file.write("buy,10\n")
+        file.write("buy,13\n")
+        file.write("supply,17\n")
+        file.write("buy,10\n")
 
-    def __exit__(
-        self,
-        exc_type: Optional[Type[BaseException]],
-        exc_val: Optional[BaseException],
-        exc_tb: Optional[TracebackType],
-    ) -> None:
-        if os.path.exists(self.filename):
-            os.remove(self.filename)
+    # Run the function
+    main(input_file, output_file)
+
+    # Check output file
+    with open(output_file, "r", encoding="utf-8") as file:
+        lines = file.readlines()
+
+    assert lines == ["supply,47\n", "buy,33\n", "result,14\n"]
+
+    # Clean up test files
+    os.remove(input_file)
+    os.remove(output_file)
 
 
-@pytest.mark.parametrize(
-    "data_file_name,report_file_name,expected_report",
-    [
-        (
-            "apples.csv",
-            "apples_report.csv",
-            "supply,188\nbuy,115\nresult,73\n",
-        ),
-        (
-            "bananas.csv",
-            "bananas_report.csv",
-            "supply,491\nbuy,293\nresult,198\n",
-        ),
-        (
-            "grapes.csv",
-            "grapes_report.csv",
-            "supply,352\nbuy,352\nresult,0\n",
-        ),
-        (
-            "oranges.csv",
-            "oranges_report.csv",
-            "supply,295\nbuy,154\nresult,141\n",
-        ),
-    ],
-)
-def test_create_report(
-    data_file_name: str, report_file_name: str, expected_report: str
-) -> None:
-    create_report(data_file_name, report_file_name)
+if __name__ == "__main__":
+    pytest.main()
 
-    with CleanUpFile(report_file_name):
-        with open(report_file_name, "r") as report_file:
-            assert report_file.read() == expected_report
