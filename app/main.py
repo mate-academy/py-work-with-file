@@ -1,7 +1,6 @@
 def create_report(
         data_file_name: str,
-        report_file_name: str
-) -> None:
+        report_file_name: str) -> None:
     dict_of_operation = {}
     with open(data_file_name, "r") as file:
         for line in file:
@@ -17,6 +16,6 @@ def create_report(
 
     with open(report_file_name, "w") as file:
         file.write(f"supply,{dict_of_operation.get("supply")}\n")
-        file.write(f"buy,{dict_of_operation.get("buy")}\n")
+        file.write(f"buy,{dict_of_operation.get("buy")}\n")  # noqa: E999
         file.write(f"result,{dict_of_operation.get("supply") - dict_of_operation.get("buy")}\n")  # noqa: E501
         file.close()
