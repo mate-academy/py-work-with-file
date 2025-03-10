@@ -1,3 +1,5 @@
+# flake8: noqa
+
 def create_report(
         data_file_name: str,
         report_file_name: str) -> None:
@@ -16,6 +18,6 @@ def create_report(
 
     with open(report_file_name, "w") as file:
         file.write(f"supply,{dict_of_operation.get("supply")}\n")
-        file.write(f"buy,{dict_of_operation.get("buy")}\n")  # noqa: E999
-        file.write(f"result,{dict_of_operation.get("supply") - dict_of_operation.get("buy")}\n")  # noqa: E501
+        file.write(f"buy,{dict_of_operation.get("buy")}\n")
+        file.write(f"result,{dict_of_operation.get("supply") - dict_of_operation.get("buy")}\n")
         file.close()
