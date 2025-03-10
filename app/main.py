@@ -20,7 +20,3 @@ def create_report(
         file.write(f"buy,{dict_of_operation.get("buy")}\n")
         file.write(f"result,{dict_of_operation.get("supply") - dict_of_operation.get("buy")}\n")  # noqa: E501
         file.close()
-
-
-if __name__ == "__main__":
-    create_report("bananas.csv", "test.csv")
