@@ -17,7 +17,7 @@ def create_report(
         file.close()
 
     with open(report_file_name, "w") as file:
-        file.write(f"supply,{dict_of_operation.get("supply")}\n")
-        file.write(f"buy,{dict_of_operation.get("buy")}\n")
-        file.write(f"result,{dict_of_operation.get("supply") - dict_of_operation.get("buy")}\n")
+        file.write(f"supply,{dict_of_operation.get('supply')}\n")
+        file.write(f"buy,{dict_of_operation.get('buy')}\n")
+        file.write(f"result,{dict_of_operation.get('supply') - dict_of_operation.get('buy')}\n")
         file.close()
