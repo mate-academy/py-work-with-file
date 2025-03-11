@@ -2,8 +2,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     supply_total = 0
     buy_total = 0
 
-    file = open(data_file_name, "r")
-    for line in file:
+    data_file = open(data_file_name, "r")
+    for line in data_file:
         if line.strip():
             operation, amount = line.strip().split(",")
             amount = int(amount)
@@ -11,7 +11,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 supply_total += amount
             elif operation == "buy":
                 buy_total += amount
-    file.close()
+    data_file.close()
 
     result = supply_total - buy_total
 
