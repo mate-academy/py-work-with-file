@@ -7,17 +7,17 @@ def create_report(data_file_name: str, report_file_name: str) -> str:
     result = 0
     with open(data_file_name) as file:
         stroki = file.readlines()
-        for s in stroki:
-            s = s.strip()
-            s = s.split(",")
-            a = int(s[1])
-            if s[0] == "supply":
-                supply += a
-            elif s[0] == "buy":
-                buy += a
+        for st in stroki:
+            st = st.strip()
+            st = st.split(",")
+            num = int(st[1])
+            if st[0] == "supply":
+                supply += num
+            elif st[0] == "buy":
+                buy += num
     result = supply - buy
 
-    with open(report_file_name, "wt") as e:
-        e.write(f"supply,{supply}\n")
-        e.write(f"buy,{buy}\n")
-        e.write(f"result,{result}\n")
+    with open(report_file_name, "wt") as text:
+        text.write(f"supply,{supply}\n")
+        text.write(f"buy,{buy}\n")
+        text.write(f"result,{result}\n")
