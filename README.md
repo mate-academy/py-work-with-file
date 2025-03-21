@@ -15,7 +15,7 @@ CSV stands for "comma-separated values". Its data fields are most often separate
 
 For example, let's say you had a spreadsheet containing the following data:
 
-| operation type | amount  | 
+    | operation type | amount  | 
 | :------------: | :-------:|
 | supply         | 30       | 
 | buy            | 10       | 
