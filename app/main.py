@@ -23,11 +23,15 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
     report = open(data_file_path_report, "x")
 
+    supply = report_formatted["supply"]
+    buy = report_formatted["buy"]
+    result = report_formatted["result"]
+
     report.writelines(
         [
-            f"supply,{report_formatted["supply"]}\n",
-            f"buy,{report_formatted["buy"]}\n",
-            f"result,{report_formatted["result"]}\n",
+            f"supply,{supply}\n",
+            f"buy,{buy}\n",
+            f"result,{result}\n",
         ]
     )
     report.close()
