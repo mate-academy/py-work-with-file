@@ -41,7 +41,6 @@ supply,47
 buy,33
 result,14
 ```
-
 Explanation:
 - `supply = 30 + 17 = 47`
 - `buy = 10 + 13 + 10 = 33`
