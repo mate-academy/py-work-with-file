@@ -1,27 +1,30 @@
 
 
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    with open(data_file_name, "r") as FileToRead:
+    with open(data_file_name, "r") as file_to_read:
         amount_supply = 0
         amount_buy = 0
-        for line in FileToRead:
-            if len(line) == 0:
+        for line in file_to_read:
+            line = line.strip()
+            if not line:
                 continue
 
-            operation_type, amount = linecd
+            parts = line.split(",")
+            if len(parts) != 2:
+                raise ValueError(f"Invalid line format: {line}")
+
+            operation_type, amount = parts
 
             try:
                 if operation_type == "supply":
                     amount_supply += int(amount)
-                if operation_type == "buy":
+                elif operation_type == "buy":
                     amount_buy += int(amount)
-
             except ValueError:
-                raise "!ERROR TYPE!"
+                raise ValueError(f"Invalid amount value: {amount}")
 
-
-    with open(report_file_name, "w") as FileToWrite:
-        FileToWrite.write("supply," + str(amount_supply))
-        FileToWrite.write("buy," + str(amount_buy))
+    with open(report_file_name, "w") as file_to_write:
+        file_to_write.write(f"supply,{amount_supply}\n")
+        file_to_write.write(f"buy,{amount_buy}\n")
         result = amount_supply - amount_buy
-        FileToWrite.write("result," + str(result))
+        file_to_write.write(f"result,{result}\n")
