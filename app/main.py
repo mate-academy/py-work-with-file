@@ -9,6 +9,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         report.update({"result": report.get("supply") - report.get("buy")})
 
     with open(report_file_name, "w") as file:
-        file.write(f"supply,{report.get("supply")}\n")
-        file.write(f"buy,{report.get("buy")}\n")
-        file.write(f"result,{report.get("result")}\n")
+        file.write(f"supply,{report.get('supply')}\n")
+        file.write(f"buy,{report.get('buy')}\n")
+        file.write(f"result,{report.get('result')}\n")
