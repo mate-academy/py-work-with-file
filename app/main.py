@@ -9,6 +9,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 dictionary[el] += int(quantity)
             else:
                 dictionary[el] = int(quantity)
-        with open(report_file_name, "a") as report:
+        with open(report_file_name, "w") as report:
+            file_string = ""
             for item, quantity in dictionary.items():
-                report.write(f"{item},{quantity}\n")
+                file_string += f"{item},{quantity}\n"
+            report.write(file_string)
