@@ -1,5 +1,5 @@
 # write your code here
-def create_report(data_file_name: str, report_file_name: str):
+def create_report(data_file_name: str, report_file_name: str) -> None:
     with open(data_file_name, "r") as data:
         list_of_date = data.readlines()
         dictionary = {}
