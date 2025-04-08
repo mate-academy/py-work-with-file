@@ -16,10 +16,10 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
     report_lines = []
     if "supply" in new_dict:
-        report_lines.append(f"supply,{new_dict["supply"]}")
+        report_lines.append(f"supply,{new_dict['supply']}")
 
     if "buy" in new_dict:
-        report_lines.append(f"buy,{new_dict["buy"]}")
+        report_lines.append(f"buy,{new_dict['buy']}")
 
     report_lines.append(f"result,{result}")
 
