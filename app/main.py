@@ -21,8 +21,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         return
 
     with open(report_file_name, "w") as target:
-        target.write(f"supply,{data.get("supply")}\n")
-        target.write(f"buy,{data.get("buy")}\n")
-        target.write(f"result,{data.get("supply") - data.get("buy")}\n")
+        target.write(f"supply,{data.get('supply')}\n")
+        target.write(f"buy,{data.get('buy')}\n")
+        target.write(f"result,{data.get('supply') - data.get('buy')}\n")
 
     return
