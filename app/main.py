@@ -1,8 +1,7 @@
-from os.path import exists  # , join
+from os.path import exists
 
 
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    # data_file_name = join("C:\\Projects\\py-work-with-file", data_file_name)
     if not exists(data_file_name):
         raise FileNotFoundError
 
@@ -20,8 +19,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     if not data:
         print(f"File {data_file_name} has no data.")
         return
-    # report_file_name = join("C:\\Projects\\py-work-with-file",
-    #                         report_file_name)
+
     with open(report_file_name, "w") as target:
         target.write(f"supply,{data.get("supply")}\n")
         target.write(f"buy,{data.get("buy")}\n")
