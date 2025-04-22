@@ -25,3 +25,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     report.write(f"result,{result}")
 
     report.close()
+
+
+print(create_report(data_file_name="../apples.csv", report_file_name="report"))
