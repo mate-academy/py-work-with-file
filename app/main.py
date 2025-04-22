@@ -10,7 +10,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             buy_sum += int(line_split[1])
     data_file_open.close()
     report_file_open = open(report_file_name, "w")
-    report_file_open.writelines([f"supply,{supply_sum}\n",
-                                f"buy,{buy_sum}\n",
-                                f"result,{supply_sum - buy_sum}\n",])
+    report_file_open.write(f"supply,{supply_sum}\n"
+                           f"buy,{buy_sum}\n"
+                           f"result,{supply_sum - buy_sum}\n")
     report_file_open.close()
