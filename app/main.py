@@ -22,9 +22,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     report = open(report_file_name, "w")
     report.write(f"supply,{supply}\n")
     report.write(f"buy,{buy}\n")
-    report.write(f"result,{result}")
+    report.write(f"result,{result}\n")
 
     report.close()
-
-
-print(create_report(data_file_name="../apples.csv", report_file_name="report"))
