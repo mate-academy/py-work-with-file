@@ -1,14 +1,12 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    input_file = open(data_file_name, "r")
-    data = input_file.read()
     words = {}
-    for line in data.strip().split("\n"):
-        parts = line.split(",")
-        words[parts[0]] = words.get(parts[0], 0) + int(parts[-1])
+    with open(data_file_name, "r") as input_file:
+        for line in input_file:
+            action, amount = line.strip().split(",")
+            words[action] = words.get(action, 0) + int(amount)
 
     words["result"] = words["supply"] - words["buy"]
-    order = ["supply", "buy", "result"]
-    result = "".join(f"{key},{words[key]}\n" for key in order if key in words)
-    print(result)
-    with open(report_file_name, "w") as output_file :
-        output_file.write(result)
+
+    with open(report_file_name, "w") as output_file:
+        for key in ["supply", "buy", "result"]:
+            output_file.write(f"{key},{words[key]}\n")
