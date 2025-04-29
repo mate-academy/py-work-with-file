@@ -1,5 +1,5 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    f = open(data_file_name, "r")
+    data_file = open(data_file_name, "r")
     report_file = open(report_file_name, "w")
     supply = 0
     buy = 0
@@ -15,5 +15,5 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     report_file.write(f"buy,{buy}\n")
     report_file.write(f"result,{supply - buy}\n")
 
-    f.close()
+    data_file.close()
     report_file.close()
