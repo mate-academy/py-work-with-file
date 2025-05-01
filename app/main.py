@@ -1,19 +1,25 @@
+import csv
+
+
 def create_report(data_file_name: str, report_file_name: str) -> None:
     supply_total = 0
     buy_total = 0
 
     try:
-        with open(data_file_name, "r") as data_file:
-            for line in data_file:
-                line = line.strip()
-                if not line:
+        with open(data_file_name, mode="r", newline="") as data_file:
+            reader = csv.reader(data_file)
+            for row in reader:
+                if not row:
+                    continue
+                if len(row) != 2:
+                    print(f"Invalid row skipped: {row}")
                     continue
 
+                operation, value_str = row
                 try:
-                    operation, value_str = line.split(",")
                     value = int(value_str)
                 except ValueError:
-                    print(f"Invalid line skipped: '{line}'")
+                    print(f"Invalid value skipped: {value_str}")
                     continue
 
                 if operation == "supply":
@@ -25,10 +31,11 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
         result = supply_total - buy_total
 
-        with open(report_file_name, "w") as report_file:
-            report_file.write(f"supply,{supply_total}\n")
-            report_file.write(f"buy,{buy_total}\n")
-            report_file.write(f"result,{result}\n")
+        with open(report_file_name, mode="w", newline="") as report_file:
+            writer = csv.writer(report_file)
+            writer.writerow(["supply", supply_total])
+            writer.writerow(["buy", buy_total])
+            writer.writerow(["result", result])
 
     except FileNotFoundError:
         print(f"Error: File '{data_file_name}' not found.")
