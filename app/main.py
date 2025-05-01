@@ -36,4 +36,3 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         print("Error: Permission denied.")
     except Exception as exc:
         print(f"Unexpected error: {exc}")
-
