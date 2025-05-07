@@ -14,10 +14,10 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         with open(report_file_name, "w") as report_file:
             result = operations["supply"] - operations["buy"]
 
-            report_file.write(f"supply,{operations["supply"]}\n"
-                              f"buy,{operations["buy"]}\n"
-                              f"result,{result}\n")
+            report_file.write(
+                "supply," + str(operations["supply"]) + "\n"
+                + "buy," + str(operations["buy"]) + "\n"
+                + "result," + str(result) + "\n"
+            )
     except ValueError as error:
         print(error)
-
-
