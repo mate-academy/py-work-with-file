@@ -1,10 +1,10 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    file = open(data_file_name, "r")
+    file_with_data = open(data_file_name, "r")
 
     supply = 0
     buy = 0
 
-    for line in file.readlines():
+    for line in file_with_data.readlines():
         operation, amount = line.strip().split(",")
         amount = int(amount)
 
@@ -14,10 +14,10 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             supply += amount
 
     result = supply - buy
-    file.close()
+    file_with_data.close()
 
-    file = open(report_file_name, "w")
-    file.write(f"supply,{supply}\n")
-    file.write(f"buy,{buy}\n")
-    file.write(f"result,{result}\n")
-    file.close()
+    file_report = open(report_file_name, "w")
+    file_report.write(f"supply,{supply}\n")
+    file_report.write(f"buy,{buy}\n")
+    file_report.write(f"result,{result}\n")
+    file_report.close()
