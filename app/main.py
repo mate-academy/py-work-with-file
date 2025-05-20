@@ -13,9 +13,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             elif split_str[0] == "buy":
                 buy += int(split_str[1])
 
-    result = supply - buy
+    result_value = supply - buy
 
     with open(report_file_name, "w") as file_write:
         file_write.write(f"supply,{supply}\n")
         file_write.write(f"buy,{buy}\n")
-        file_write.write(f"result,{result}\n")
+        file_write.write(f"result,{result_value}\n")
