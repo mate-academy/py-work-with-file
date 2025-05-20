@@ -2,7 +2,7 @@ import csv
 import os
 
 
-def process_csv(data_file_name: str, report_file_name: str) -> None:
+def create_report(data_file_name: str, report_file_name: str) -> None:
     supply_total = 0
     buy_total = 0
 
