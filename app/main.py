@@ -1,10 +1,11 @@
 import csv
 
-def process_csv(data_file_name: str, report_file_name: str):
+
+def process_csv(data_file_name: str, report_file_name: str) -> None:
     supply_total = 0
     buy_total = 0
 
-    with open(data_file_name, newline='') as csvfile:
+    with open(data_file_name, newline="") as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
             if row:
@@ -16,11 +17,8 @@ def process_csv(data_file_name: str, report_file_name: str):
 
     result = supply_total - buy_total
 
-    with open(report_file_name, mode='w', newline='') as reportfile:
+    with open(report_file_name, mode="w", newline="") as reportfile:
         writer = csv.writer(reportfile)
         writer.writerow(["supply", supply_total])
         writer.writerow(["buy", buy_total])
         writer.writerow(["result", result])
-
-
-process_csv("input.csv", "report.csv")
