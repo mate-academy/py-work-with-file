@@ -12,8 +12,10 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 continue
 
     result = res["supply"] - res["buy"]
+    supply = res["supply"]
+    buy = res["buy"]
 
     with open(report_file_name, "w") as report:
-        report.write(f"supply,{res["supply"]}\n")
-        report.write(f"buy,{res["buy"]}\n")
+        report.write(f"supply,{supply}\n")
+        report.write(f"buy,{buy}\n")
         report.write(f"result,{result}\n")
