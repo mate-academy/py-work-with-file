@@ -3,7 +3,7 @@ def create_report(
         report_file_name: str
 ) -> None:
     report_data = {}
-    with open(f"../{data_file_name}", "r") as f:
+    with open(data_file_name, "r") as f:
         for line in f:
             data = line.strip().split(",")
             key, value = data[0], int(data[1])
