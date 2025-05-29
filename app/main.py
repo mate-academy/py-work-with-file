@@ -22,7 +22,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 report_file.write(f"{key},{value}\n")
             else:
                 report_file.write(f"{key},{value}\n")
-                report_file.write(f"result,"
-                                  f"{reduce(
-                                      lambda x, y: x - y,
-                                      result_dict.values())}\n")
+                report_file.write(
+                    f"result,{reduce(
+                        lambda x, y: x - y, result_dict.values())}\n")
