@@ -1,12 +1,12 @@
-def create_report(data_file_name: str, report_file_name: str):
+def create_report(data_file_name: str, report_file_name: str) -> None:
     file1 = open(data_file_name, "rt")
     supply = 0
     buy = 0
-    for file in file1:
-        if "supply" in file:
-            supply += int(file.split(",")[-1])
-        if "buy" in file:
-            buy += int(file.split(",")[-1])
+    for file3 in file1:
+        if "supply" in file3:
+            supply += int(file3.split(",")[-1])
+        if "buy" in file3:
+            buy += int(file3.split(",")[-1])
     result = supply - buy
     file1.close()
     file2 = open(report_file_name, "w")
