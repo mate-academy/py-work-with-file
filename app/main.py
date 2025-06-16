@@ -1,7 +1,7 @@
 import csv
 
 
-def create_report(data_file_name: str, report_file_name: str):
+def create_report(data_file_name: str, report_file_name: str) -> None:
     total_supply = 0
     total_buy = 0
 
@@ -28,7 +28,8 @@ def create_report(data_file_name: str, report_file_name: str):
                 elif operation_type == "buy":
                     total_buy += amount
                 else:
-                    print(f"Skipping unknown operation type: {operation_type} in row: {row}")
+                    print(f"Skipping unknown operation type:"
+                          f" {operation_type} in row: {row}")
 
     except FileNotFoundError:
         print(f"Error: Input file '{data_file_name}' not found.")
@@ -40,7 +41,8 @@ def create_report(data_file_name: str, report_file_name: str):
     result = total_supply - total_buy
 
     try:
-        with open(report_file_name, "w", newline="", encoding="utf-8") as outfile:
+        with open(report_file_name,
+                  "w", newline="", encoding="utf-8") as outfile:
             writer = csv.writer(outfile)
             writer.writerow(["supply", total_supply])
             writer.writerow(["buy", total_buy])
