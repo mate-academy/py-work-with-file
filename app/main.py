@@ -50,4 +50,3 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             writer.writerow(["result", result])
     except Exception as e:
         print(f"An error occurred while writing the report file: {e}")
-  
