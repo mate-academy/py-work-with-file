@@ -20,6 +20,6 @@ def create_report(data_file_name: str,
     data_file.close()
 
     with open(report_file_name, "w") as f:
-        f.write(f"supply,{data["supply"]}\n")
-        f.write(f"buy,{data["buy"]}\n")
-        f.write(f"result,{data["supply"] - data["buy"]}\n")
+        f.write(f'supply,{data["supply"]}\n')
+        f.write(f'buy,{data["buy"]}\n')
+        f.write(f'result,{data["supply"] - data["buy"]}\n')
