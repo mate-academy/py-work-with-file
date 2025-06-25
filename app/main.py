@@ -37,9 +37,15 @@ def calc_stats(content_dict: dict) -> dict:
 
 
 def write_to_file(report_file_name: str, report: dict) -> None:
-    result_str = (f"supply,{report["supply"]}\n"
-                  f"buy,{report["buy"]}\n"
-                  f"result,{report["result"]}\n")
+    supply = report["supply"]
+    buy = report["buy"]
+    result = report["result"]
+
+    result_str = (
+        f"supply,{supply}\n"
+        f"buy,{buy}\n"
+        f"result,{result}\n"
+    )
 
     with open(report_file_name, "w") as file:
         file.write(result_str)
