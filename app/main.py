@@ -1,22 +1,18 @@
-import csv
-
-
-def create_report(data_file_name: str, report_file_name: str):
-    totals = {'supply': 0, 'buy': 0}
-
-    with open(data_file_name, 'r', newline='') as csvfile:
-        reader = csv.reader(csvfile)
-        for row in reader:
-            if not row:
-                continue
-            operation, amount = row[0], row[1]
-            totals[operation] += int(amount)
-
-    result = totals['supply'] - totals['buy']
-
-    with open(report_file_name, 'w', newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(['supply', totals['supply']])
-        writer.writerow(['buy', totals['buy']])
-        writer.writerow(['result', result])
-
+def create_report(
+        data_file_name: str,
+        report_file_name: str
+) -> None:
+    result = {}
+    with open(data_file_name, "r") as data_file:
+        with open(report_file_name, "w") as write_file:
+            for data in data_file:
+                key, value = data.split(",")
+                result[key] = (
+                    int(value)
+                    if not result.get(key)
+                    else result.get(key) + int(value)
+                )
+            result["result"] = result["supply"] - result["buy"]
+            write_file.write(f"supply,{result.get('supply')}\n")
+            write_file.write(f"buy,{result.get('buy')}\n")
+            write_file.write(f"result,{result.get('result')}\n")
