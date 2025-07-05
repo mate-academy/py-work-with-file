@@ -20,7 +20,6 @@ def create_report(
     with open(data_file_name, "r") as data_file:
         data = parse_csv(data_file.read())
         report = summarize_report(data)
-        print(report)
         data_file.close()
 
     with open(report_file_name, "w") as report_file:
