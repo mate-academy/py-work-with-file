@@ -12,12 +12,14 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
     enter_file.close()
 
-    result = int(new_dict["supply"]) - int(new_dict["buy"])
+    supply = int(new_dict["supply"])
+    buy = int(new_dict["buy"])
+    result = supply - buy
     new_dict.update({"result": result})
 
     report_file = open(report_file_name, "w")
 
-    report_file.write(f"supply,{new_dict.get("supply")}\n")
-    report_file.write(f"buy,{new_dict.get("buy")}\n")
-    report_file.write(f"result,{new_dict.get("result")}\n")
+    report_file.write(f"supply,{supply}\n")
+    report_file.write(f"buy,{buy}\n")
+    report_file.write(f"result,{result}\n")
     report_file.close()
