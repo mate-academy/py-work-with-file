@@ -3,13 +3,13 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
     with open(f"../{data_file_name}", "r") as file:
         for line in file:
-            split_line = line.rstrip().split(",")
+            current_line = line.rstrip().split(",")
 
-            if len(split_line) >= 2 and split_line[0].strip():
-                if split_line[0] in report:
-                    report[split_line[0]] += int(split_line[1])
+            if len(current_line) >= 2 and current_line[0].strip():
+                if current_line[0] in report:
+                    report[current_line[0]] += int(current_line[1])
                 else:
-                    report[split_line[0]] = int(split_line[1])
+                    report[current_line[0]] = int(current_line[1])
 
     with open(report_file_name, "w") as new_file:
         result = report.get("supply", 0) - report.get("buy", 0)
