@@ -16,4 +16,4 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
         new_file.write(f'supply,{report.get("supply", 0)}\n')
         new_file.write(f'buy,{report.get("buy", 0)}\n')
-        new_file.write(f'result,{result}\n')
+        new_file.write(f"result,{result}\n")
