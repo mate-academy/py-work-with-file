@@ -1,7 +1,10 @@
 import os
 
+
 def create_report(data_file_name: str, report_file_name: str) -> None:
+    # Якщо файл не знайдено, шукаємо в корені проекту
     if not os.path.exists(data_file_name):
+        # Шукаємо в корені проекту
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         root_path = os.path.join(base_dir, data_file_name)
 
