@@ -13,10 +13,10 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     for line in file_content.strip().splitlines():
         if not line:
             continue
-        op, amount = line.split(",")
-        if op == "supply":
+        operation_type, amount = line.split(",")
+        if operation_type == "supply":
             supply += int(amount)
-        elif op == "buy":
+        elif operation_type == "buy":
             buy += int(amount)
 
     result = supply - buy
