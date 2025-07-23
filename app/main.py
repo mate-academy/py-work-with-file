@@ -9,7 +9,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     data_file.close()
 
     report = open(report_file_name, "a")
-    report.write(f"supply,{data["supply"]}\n"
-                 f"buy,{data["buy"]}\n"
-                 f"result,{data["supply"] - data["buy"]}\n")
+    report.write(f'supply,{data["supply"]}\n'
+                 f'buy,{data["buy"]}\n'
+                 f'result,{data["supply"] - data["buy"]}\n')
     report.close()
