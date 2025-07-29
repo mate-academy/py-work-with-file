@@ -1,5 +1,6 @@
 import os
 
+
 def create_report(data_file_name: str, report_file_name: str) -> str:
     current_script_dir = os.path.dirname(os.path.abspath(__file__))
     base_dir = os.path.dirname(current_script_dir)
