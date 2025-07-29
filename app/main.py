@@ -11,6 +11,5 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             report[key] += int(value)
         report["result"] = report["supply"] - report["buy"]
     with open(report_file_name,"a") as file:
-        for k,v in report.items():
-            file.write(f"{k},{v}\n")
-
+        for key, value in report.items():
+            file.write(f"{key},{value}\n")
