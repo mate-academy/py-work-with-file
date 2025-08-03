@@ -1,5 +1,5 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    file_data = open("..\\" + data_file_name, "r")
+    file_data = open(data_file_name, "r")
     rep_data = {}
     for line in file_data.readlines():
         if line.strip() != "":
