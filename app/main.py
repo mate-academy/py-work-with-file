@@ -12,5 +12,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     report = open(report_file_name, "a")
     for key, value in operations.items():
         report.write(f"{key},{value}\n")
-    report.write(f"result,{operations["supply"] - operations["buy"]}\n")
+    supply = operations["supply"]
+    buy = operations["buy"]
+    report.write(f"result,{supply - buy}\n")
     report.close()
