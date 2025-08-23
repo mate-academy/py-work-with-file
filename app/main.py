@@ -1,5 +1,6 @@
 from pathlib import Path
 
+
 def create_report(data_file_name: str, report_file_name: str) -> None:
     try:
         lines = Path(data_file_name).read_text(encoding="utf-8").splitlines()
