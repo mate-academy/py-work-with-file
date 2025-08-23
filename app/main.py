@@ -1,15 +1,30 @@
-def create_report(dn, rn):
+from pathlib import Path
+
+def create_report(data_file_name: str, report_file_name: str) -> None:
     try:
-        lines = open(dn, encoding="utf-8").read().splitlines()
+        lines = Path(data_file_name).read_text(encoding="utf-8").splitlines()
     except FileNotFoundError:
-        lines = open("../" + dn, encoding="utf-8").read().splitlines()
-    s = b = 0
-    for l in lines:
-        if not l:
+        lines = (Path(__file__).parent.parent / data_file_name)\
+            .read_text(encoding="utf-8").splitlines()
+
+    supply_total = 0
+    buy_total = 0
+
+    for line in lines:
+        if not line:
             continue
-        op, amt = l.split(",", 1)
-        if op == "supply":
-            s += int(amt)
+
+        operation, amount_str = line.split(",", 1)
+        quantity = int(amount_str)
+        if operation == "supply":
+            supply_total += quantity
         else:
-            b += int(amt)
-    open(rn, "w", encoding="utf-8").write(f"supply,{s}\nbuy,{b}\nresult,{s-b}\n")
+            buy_total += quantity
+
+    report_text = (
+        f"supply,{supply_total}\n"
+        f"buy,{buy_total}\n"
+        f"result,{supply_total - buy_total}\n"
+    )
+
+    Path(report_file_name).write_text(report_text, encoding="utf-8")
