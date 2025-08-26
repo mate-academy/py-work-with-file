@@ -3,25 +3,28 @@ def create_report(
     report_file_name: str
 ) -> None:
     data_file = open(data_file_name, "r")
-    results = {
-        "buy": 0,
-        "supply": 0,
-        "result": 0
-    }
+
+    buy = 0
+    supply = 0
+
     for data_line in data_file:
         if data_line == "":
             break
         service, value = data_line.split(",")
         value = int(value)
-        results[service] += value
+
+        if service == "buy":
+            buy += value
+        else:
+            supply += value
 
     data_file.close()
-    results["result"] = results["supply"] - results["buy"]
+    result = supply - buy
 
     report_file = open(report_file_name, "w")
 
-    report_file.write(f"supply,{results["supply"]}\n")
-    report_file.write(f"buy,{results["buy"]}\n")
-    report_file.write(f"result,{results["result"]}\n")
+    report_file.write(f"supply,{supply}\n")
+    report_file.write(f"buy,{buy}\n")
+    report_file.write(f"result,{result}\n")
 
     report_file.close()
