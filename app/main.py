@@ -19,6 +19,7 @@ def create_report(
     results["result"] = results["supply"] - results["buy"]
 
     report_file = open(report_file_name, "w")
+
     report_file.write(f"supply,{results["supply"]}\n")
     report_file.write(f"buy,{results["buy"]}\n")
     report_file.write(f"result,{results["result"]}\n")
