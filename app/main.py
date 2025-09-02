@@ -8,10 +8,10 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             if line:
                 operation, amount = line.split(",")
                 amount = int(amount)
-            if operation == "buy":
-                buy += amount
-            elif operation == "supply":
-                supply += amount
+                if operation == "buy":
+                    buy += amount
+                elif operation == "supply":
+                    supply += amount
 
     result = supply - buy
 
