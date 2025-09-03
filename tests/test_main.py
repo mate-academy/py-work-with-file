@@ -1,15 +1,18 @@
+from __future__ import annotations
 import os
-import pytest
-from app.main import create_report
 from types import TracebackType
 from typing import Optional, Type
+
+import pytest
+
+from app.main import create_report
 
 
 class CleanUpFile:
     def __init__(self, filename: str) -> None:
         self.filename = filename
 
-    def __enter__(self) -> "CleanUpFile":
+    def __enter__(self) -> CleanUpFile:
         return self
 
     def __exit__(
@@ -21,7 +24,6 @@ class CleanUpFile:
         if os.path.exists(self.filename):
             os.remove(self.filename)
 
-BASE_DIR = os.path.dirname(__file__)
 
 @pytest.mark.parametrize(
     "data_file_name,report_file_name,expected_report",
@@ -51,11 +53,8 @@ BASE_DIR = os.path.dirname(__file__)
 def test_create_report(
     data_file_name: str, report_file_name: str, expected_report: str
 ) -> None:
-    data_path = os.path.join(BASE_DIR, data_file_name)
-    report_path = os.path.join(BASE_DIR, report_file_name)
+    create_report(data_file_name, report_file_name)
 
-    create_report(data_path, report_path)
-
-    with CleanUpFile(report_path):
-        with open(report_path, "r") as report_file:
+    with CleanUpFile(report_file_name):
+        with open(report_file_name, "r") as report_file:
             assert report_file.read() == expected_report
