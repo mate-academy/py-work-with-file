@@ -16,6 +16,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 result_dict[line[0]] = int(line[1])
         max_value = max(result_dict.values())
         num_difference = max_value - (sum(result_dict.values()) - max_value)
-        output_file.write(f"supply,{result_dict["supply"]}\n"
-                          f"buy,{result_dict["buy"]}\n"
+        output_file.write(f"supply,{result_dict.get("supply")}\n"
+                          f"buy,{result_dict.get("buy")}\n"
                           f"result,{num_difference}\n")
