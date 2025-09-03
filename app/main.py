@@ -8,6 +8,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
           open(report_file_name, "w", newline="") as output_file):
         reader = csv.reader(input_file)
         for line in reader:
+            if line[0] not in ("supply", "buy"):
+                continue
             if line[0] in result_dict:
                 result_dict[line[0]] += int(line[1])
             else:
