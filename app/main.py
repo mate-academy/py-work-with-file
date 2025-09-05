@@ -6,12 +6,12 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         for line in file.readlines():
             if line.strip():
                 operation, amount = line.strip().split(',')
-                if operation == 'supply':
+                if operation == "supply":
                     supply_total += int(amount)
-                elif operation == 'buy':
+                elif operation == "buy":
                     buy_total += int(amount)
 
-    with open(report_file_name, 'w') as file:
-        file.write(f'supply,{supply_total}\n')
-        file.write(f'buy,{buy_total}\n')
-        file.write(f'result,{supply_total - buy_total}\n')
+    with open(report_file_name, "w") as file:
+        file.write(f"supply,{supply_total}\n")
+        file.write(f"buy,{buy_total}\n")
+        file.write(f"result,{supply_total - buy_total}\n")
