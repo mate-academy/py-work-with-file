@@ -8,7 +8,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 operation, amount = line.strip().split(',')
                 if operation == "supply":
                     supply_total += int(amount)
-                elif operation == "buy":
+                elif operation == 'buy':
                     buy_total += int(amount)
 
     with open(report_file_name, "w") as file:
