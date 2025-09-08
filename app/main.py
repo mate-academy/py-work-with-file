@@ -11,7 +11,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 buy += int(line_parts[1])
 
     result = supply - buy
-    report = f"supply,{supply}\nbuy,{buy}\nresult,{result}"
+    report = f"supply,{supply}\nbuy,{buy}\nresult,{result}\n"
 
     with open(report_file_name, "w") as file:
         file.write(report)
