@@ -1,7 +1,7 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
     total_supply = 0
     total_buy = 0
-    with open(data_file_name, "r" ) as old_file :
+    with open(data_file_name,"r") as old_file :
         for line in old_file :
             if not line.strip():
                 continue
@@ -13,6 +13,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             new_file.write(f"supply,{total_supply}\n"
                            f"buy,{total_buy}\n"
                            f"result,{total_supply - total_buy}\n")
+
 
 
 
