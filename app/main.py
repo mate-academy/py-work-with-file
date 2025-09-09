@@ -13,7 +13,3 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             new_file.write(f"supply,{total_supply}\n"
                            f"buy,{total_buy}\n"
                            f"result,{total_supply - total_buy}\n")
-
-
-
-
