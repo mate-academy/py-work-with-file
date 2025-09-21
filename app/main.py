@@ -6,7 +6,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         for line in data_file:
             line = line.strip()
             if not line:
-                continue  # Ignora linhas vazias
+                continue
 
             operation, amount = line.split(",")
             amount = int(amount)
@@ -22,5 +22,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         report_file.write(f"supply,{supply_total}\n")
         report_file.write(f"buy,{buy_total}\n")
         report_file.write(f"result,{result}\n")
+
 
 create_report("market.csv", "report.csv")
