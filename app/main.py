@@ -11,7 +11,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     res_dict["result"] = res_dict["supply"] - res_dict["buy"]
 
     report = open(report_file_name, "w")
-    for key, value in res_dict.items():
-        report.write(",".join((key, str(value))) + "\n")
+    report.write(",".join(("supply", str(res_dict["supply"]))) + "\n")
+    report.write(",".join(("buy", str(res_dict["buy"]))) + "\n")
+    report.write(",".join(("result", str(res_dict["result"]))) + "\n")
 
     report.close()
