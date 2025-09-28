@@ -11,6 +11,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                     if before_comma in result1:
                         result1[before_comma] += int(after_comma)
     with open(report_file_name, "w") as file2:
-        file2.write(f"supply,{result1["supply"]}\n")
-        file2.write(f"buy,{result1["buy"]}\n")
-        file2.write(f"result,{result1["supply"] - result1["buy"]}\n")
+        file2.write(f'supply,{result1["supply"]}\n')
+        file2.write(f'buy,{result1["buy"]}\n')
+        file2.write(f'result,{result1["supply"] - result1["buy"]}\n')
