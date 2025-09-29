@@ -19,7 +19,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     new_dict["result"] = new_dict.get("supply", 0) - new_dict.get("buy", 0)
 
     report = open(report_file_name, "w")
-    report.write(f"supply,{new_dict.get("supply", 0)}\n")
-    report.write(f"buy,{new_dict.get("buy", 0)}\n")
-    report.write(f"result,{new_dict["result"]}\n")
+    report.write(f"supply,{new_dict.get('supply', 0)}\n")
+    report.write(f"buy,{new_dict.get('buy', 0)}\n")
+    report.write(f"result,{new_dict['result']}\n")
     report.close()
