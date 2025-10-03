@@ -20,8 +20,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     result_sum = supply_sum - buy_sum
 
     with open(report_file_name, "w") as file:
-        file.write(f'supply,{supply_sum}\n')
-        file.write(f'buy,{buy_sum}\n')
-        file.write(f'result,{result_sum}\n')
+        file.write(f"supply,{supply_sum}\n")
+        file.write(f"buy,{buy_sum}\n")
+        file.write(f"result,{result_sum}\n")
 
     file.close()
