@@ -1,8 +1,4 @@
-from typing import TextIO
-
-
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    """Зчитує CSV-файл із операціями supply/buy та створює звіт."""
     total_supply: int = 0
     total_buy: int = 0
 
@@ -13,7 +9,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 continue
             operation, amount_str = line.split(",")
             amount = int(amount_str)
-
             if operation == "supply":
                 total_supply += amount
             elif operation == "buy":
