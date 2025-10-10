@@ -20,19 +20,19 @@ def create_report(
             data_file.seek(4)
             buy += int(data_file.read(counter))
             counter = 0
-    else:
-        data_file.read(7)
-        if data_file.read(1).isnumeric():
-            counter += 1
+        else:
+            data_file.read(7)
             if data_file.read(1).isnumeric():
                 counter += 1
                 if data_file.read(1).isnumeric():
                     counter += 1
                     if data_file.read(1).isnumeric():
                         counter += 1
-            data_file.seek(7)
-            supply += int(data_file.read(counter))
-            counter = 0
+                        if data_file.read(1).isnumeric():
+                            counter += 1
+                data_file.seek(7)
+                supply += int(data_file.read(counter))
+                counter = 0
     data_file.close()
     file_report = open(report_file_name, "w")
     file_report.write(f"supply,{supply}\nbuy,{buy}\nresult,{supply - buy}\n")
