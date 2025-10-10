@@ -10,11 +10,11 @@ def create_report(
         if "buy" in line:
             data_file.read(4)
             if data_file.read(1).isnumeric():
-                counter = +1
+                counter += 1
                 if data_file.read(1).isnumeric():
-                    counter =+ 1
+                    counter += 1
                     if data_file.read(1).isnumeric():
-                        counter =+ 1
+                        counter += 1
                         if data_file.read(1).isnumeric():
                             counter += 1
             data_file.seek(4)
@@ -23,11 +23,11 @@ def create_report(
     else:
         data_file.read(7)
         if data_file.read(1).isnumeric():
-            counter =+ 1
+            counter += 1
             if data_file.read(1).isnumeric():
-                counter =+ 1
+                counter += 1
                 if data_file.read(1).isnumeric():
-                    counter =+ 1
+                    counter += 1
                     if data_file.read(1).isnumeric():
                         counter += 1
             data_file.seek(7)
