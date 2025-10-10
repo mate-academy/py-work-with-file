@@ -35,5 +35,5 @@ def create_report(
             counter = 0
     data_file.close()
     file_report = open(report_file_name, "w")
-    file_report.write(f"supply,{supply}\nbuy,{buy}\nresult,{supply - buy}")
+    file_report.write(f"supply,{supply}\nbuy,{buy}\nresult,{supply - buy}\n")
     file_report.close()
