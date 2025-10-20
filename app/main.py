@@ -17,8 +17,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
     report_file = open(report_file_name, "w")
     report_file.write(
-        f"supply,{dictionary["supply"]}\n"
-        f"buy,{dictionary["buy"]}\n"
-        f"result,{dictionary["supply"] - dictionary["buy"]}\n"
+        f'supply,{dictionary["supply"]}\n'
+        f'buy,{dictionary["buy"]}\n'
+        f'result,{dictionary["supply"] - dictionary["buy"]}\n'
     )
     report_file.close()
