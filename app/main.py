@@ -1,8 +1,4 @@
 import csv
-import os
-os.chdir("/Users/admin/Documents/"
-         "mate academy learning /"
-         "github/py-work-with-file")
 
 
 def create_report(data_file_name: str, report_file_name: str) -> None:
