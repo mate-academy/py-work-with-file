@@ -4,9 +4,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     for item in file_of_inf.readlines():
         line_list = item.split(",")
         if line_list[0] not in dict_of_inf:
-            dict_of_inf[line_list[0]] = line_list[1]
+            dict_of_inf[line_list[0]] = int(line_list[1])
         else:
-            dict_of_inf[line_list[0]] += line_list[1]
+            dict_of_inf[line_list[0]] += int(line_list[1])
 
     file_of_inf.close()
 
