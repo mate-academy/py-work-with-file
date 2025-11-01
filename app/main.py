@@ -14,7 +14,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
     new_report = open(report_file_name, "w")
 
-    for key, value in dict_of_inf.items():
-        new_report.write(f"{key},{value}\n")
+    for key in ["supply", "buy", "result"]:  # порядок гарантовано правильний
+        if key in dict_of_inf:
+            new_report.write(f"{key},{dict_of_inf[key]}\n")
 
     new_report.close()
