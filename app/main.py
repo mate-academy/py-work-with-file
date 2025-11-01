@@ -15,6 +15,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     new_report = open(report_file_name, "w")
 
     for key, value in dict_of_inf.items():
-        new_report.write(f"{key}, {value}\n")
+        new_report.write(f"{key},{value}\n")
 
     new_report.close()
