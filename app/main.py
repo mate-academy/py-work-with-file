@@ -13,6 +13,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 buy_total += int(amount)
             elif operation == "supply":
                 supply_total += int(amount)
-        with open(report_file_name, "w") as f:
-            f.write(f"supply,{supply_total}\nbuy,{buy_total}\n"
+        with open(report_file_name, "w") as e:
+            e.write(f"supply,{supply_total}\nbuy,{buy_total}\n"
                     f"result,{supply_total - buy_total}\n")
