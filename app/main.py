@@ -7,6 +7,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             if not line:
                 continue
             parts = line.split(",")
+            if len(parts) < 2:
+                continue
             operation = parts[0]
             amount = parts[1]
             if operation == "buy":
