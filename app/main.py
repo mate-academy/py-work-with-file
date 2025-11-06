@@ -12,7 +12,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
     file_to_write = open(report_file_name, mode="w")
 
-    file_to_write.write(f"supply,{report.get("supply")}\n")
-    file_to_write.write(f"buy,{report.get("buy")}\n")
-    file_to_write.write(f"result,{report.get("result")}\n")
+    file_to_write.write(f"supply,{report["supply"]}\n")
+    file_to_write.write(f"buy,{report["buy"]}\n")
+    file_to_write.write(f"result,{report["result"]}\n")
     file_to_write.close()
