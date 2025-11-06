@@ -1,5 +1,6 @@
 import os
 
+
 def create_report(data_file_name: str, report_file_name: str) -> None:
 
     app_dir = os.path.dirname(__file__)
@@ -25,4 +26,3 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         for key, value in dictionary.items():
             report_file.write(f"{key},{value}\n")
         report_file.write(f"result,{result}\n")
-
