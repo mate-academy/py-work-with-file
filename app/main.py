@@ -1,20 +1,26 @@
-import csv
-# data_file_name read from this
-# report_file_name write to this
-
 def create_report(data_file_name: str,
                   report_file_name: str) -> None:
-    # file = open(data_file_name, "r")
-    # a = csv.reader(data_file_name, delimiter=',', quotechar='|')
-    # for row in a:
-    #     print(a)
-    with open(data_file_name, newline='') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
-        for row in spamreader:
-            print(row)
+    csv_file = open(data_file_name, "r")
 
+    supply_sum = 0
+    buy_sum = 0
+    result = 0
 
-create_report("../apples.csv", "../bananas.csv")
+    for row in csv_file:
+        row = row.strip()
+        op, val = row.split(",", 1)
+        if op == "supply":
+            supply_sum += int(val)
+        if op == "buy":
+            buy_sum += int(val)
+    result = supply_sum - buy_sum
 
+    csv_file.close()
 
+    csv_file_to_write = open(report_file_name, "a")
 
+    csv_file_to_write.write(f"supply,{supply_sum}\n")
+    csv_file_to_write.write(f"buy,{buy_sum}\n")
+    csv_file_to_write.write(f"result,{result}\n")
+
+    csv_file_to_write.close()
