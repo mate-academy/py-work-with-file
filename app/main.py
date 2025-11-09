@@ -18,6 +18,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     result = totals["supply"] - totals["buy"]
 
     with open(report_file_name, "w") as report_file:
-        report_file.write(f"supply,{totals["supply"]}\n")
-        report_file.write(f"buy,{totals["buy"]}\n")
-        report_file.write(f"result,{result}\n")
+        report_file.write("supply," + str(totals["supply"]) + "\n")
+        report_file.write("buy," + str(totals["buy"]) + "\n")
+        report_file.write("result," + str(result) + "\n")
