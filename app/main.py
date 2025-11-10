@@ -9,9 +9,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
         key, value = line.split(",")
         value = int(value)
-
-        dictionary[key] = dictionary.get(key, 0) + int(value)
-    input_file.close()
+        dictionary[key] = dictionary.get(key, 0) + value
 
     with open(report_file_name, "w", newline="") as report:
         for key, value in dictionary.items():
@@ -20,5 +18,3 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         buy_total = dictionary.get("buy", 0)
         result = supply_total - buy_total
         report.write(f"result,{result}\n")
-
-    report.close()
