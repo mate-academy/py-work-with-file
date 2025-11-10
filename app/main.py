@@ -16,5 +16,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     with open(report_file_name, "w", newline="") as report:
         for key, value in dictionary.items():
             report.write(f"{key},{value}\n")
+        report.write(f'result,{dictionary.get("supply") - dictionary.get("buy")}')
 
     report.close()
