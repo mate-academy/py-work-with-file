@@ -9,7 +9,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
         key, value = line.split(",")
 
-        dictionary[key] = dictionary.get(key, 0) + value
+        dictionary[key] = dictionary.get(key, 0) + int(value)
     file.close()
 
     with open(report_file_name, "w", newline="") as report:
