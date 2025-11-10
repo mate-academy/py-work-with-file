@@ -8,6 +8,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             continue
 
         key, value = line.split(",")
+        value = int(value)
 
         dictionary[key] = dictionary.get(key, 0) + int(value)
     input_file.close()
