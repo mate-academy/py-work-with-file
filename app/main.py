@@ -11,6 +11,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             else:
                 result_data[action] = value
             result_data.get(action, 0)
-        write_result.write(f"supply,{result_data.get('supply', 0)}" + '\n')
-        write_result.write(f"buy,{result_data.get('buy', 0)}" + '\n')
-        write_result.write(f"result,{result_data.get('supply', 0) - result_data.get('buy', 0)}")
+        supply = result_data.get("supply", 0)
+        buy = result_data.get("buy", 0)
+        write_result.write(f"supply,{supply}" + "\n")
+        write_result.write(f"buy,{buy}" + "\n")
+        write_result.write(f"result,{supply - buy}")
