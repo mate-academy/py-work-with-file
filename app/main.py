@@ -1,1 +1,16 @@
-# write your code here
+def create_report(data_file_name: str, report_file_name: str) -> None:
+    with open(data_file_name, "r") as read_file, open(report_file_name, "w") as write_result:
+        create_copy = read_file.read().splitlines()
+        result_data = {}
+        for el in create_copy:
+            data_list = el.strip().split(",")
+            action = data_list[0]
+            value = int(data_list[1])
+            if action in result_data:
+                result_data[action] += value
+            else:
+                result_data[action] = value
+            result_data.get(action, 0)
+        write_result.write(f"supply,{result_data.get('supply', 0)}" + '\n')
+        write_result.write(f"buy,{result_data.get('buy', 0)}" + '\n')
+        write_result.write(f"result,{result_data.get('supply', 0) - result_data.get('buy', 0)}")
