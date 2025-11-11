@@ -1,5 +1,5 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    with open(data_file_name, "r") as read_file, open(report_file_name, "w") as write_result:
+    with open(data_file_name, "r") as read_file:
         create_copy = read_file.read().splitlines()
         result_data = {}
         for el in create_copy:
@@ -10,7 +10,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 result_data[action] += value
             else:
                 result_data[action] = value
-            result_data.get(action, 0)
+    with open(report_file_name, "w") as write_result:
         supply = result_data.get("supply", 0)
         buy = result_data.get("buy", 0)
         write_result.write(f"supply,{supply}" + "\n")
