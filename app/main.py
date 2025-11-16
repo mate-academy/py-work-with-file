@@ -16,9 +16,12 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
     file_source.close()
 
-    file_report.write(f"supply,{report_dict.get("supply", 0)}\n")
-    file_report.write(f"buy,{report_dict.get("buy", 0)}\n")
-    file_report.write(f"result,{report_dict.get("supply", 0)
-                                - report_dict.get("buy", 0)}\n")
+    sum_supply = report_dict.get("supply", 0)
+    sum_buy = report_dict.get("buy", 0)
+    sum_report = sum_supply - sum_buy
+
+    file_report.write(f"supply,{sum_supply}\n")
+    file_report.write(f"buy,{sum_buy}\n")
+    file_report.write(f"result,{sum_report}\n")
 
     file_report.close()
