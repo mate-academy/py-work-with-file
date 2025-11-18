@@ -20,10 +20,10 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         return
     result = result_operation["supply"] - result_operation["buy"]
     try:
-        with open(report_file_name, "w") as reportefile:
-            reportefile.write(f"supply,{result_operation["supply"]}\n")
-            reportefile.write(f"buy,{result_operation["buy"]}\n")
-            reportefile.write(f"result,{result}\n")
+        with open(report_file_name, "w") as report_file:
+            report_file.write(f"supply,{result_operation["supply"]}\n")
+            report_file.write(f"buy,{result_operation["buy"]}\n")
+            report_file.write(f"result,{result}\n")
     except IOError:
         print("write error")
         return
