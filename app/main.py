@@ -16,8 +16,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     counted_data["result"] = counted_data["supply"] - counted_data["buy"]
 
     with open(report_file_name, "w") as new_report:
-        new_report.write(f"supply,{counted_data["supply"]}\n"
-                          f"buy,{counted_data["buy"]}\n"
-                          f"result,{counted_data["result"]}\n")
-
-
+        sup = counted_data["supply"]
+        buy = counted_data["buy"]
+        result = counted_data["result"]
+        new_report.write(
+            f"supply,{sup}\nbuy,{buy}\nresult,{result}\n"
+        )
