@@ -15,4 +15,4 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
 
 if __name__ == "__main__":
-    create_report(data_file_name="data.csv", report_file_name="report.csv")
+    create_report(data_file_name="data1.csv", report_file_name="report.csv")
