@@ -16,3 +16,4 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 buy_total += amount
 
     result = supply_total - buy_total
+
