@@ -3,7 +3,16 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     supply_total = 0
     buy_total = 0
 
-    # Читаємо дані з файлу
     with open(data_file_name, "r") as file:
         for line in file:
             line = line.strip()
+            if not line:
+                continue
+            operation, amount = line.split(",")
+            amount = int(amount)
+            if operation == "supply":
+                supply_total += amount
+            elif operation == "buy":
+                buy_total += amount
+
+    result = supply_total - buy_total
