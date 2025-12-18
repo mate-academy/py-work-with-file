@@ -2,8 +2,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     supply = 0
     buy = 0
 
-    file = open(data_file_name, "r")
-    for line in file:
+    data_file = open(data_file_name, "r")
+    for line in data_file:
         if not line.strip():
             continue
 
@@ -14,7 +14,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             supply += amount
         else:
             buy += amount
-    file.close()
+    data_file.close()
 
     report = open(report_file_name, "w")
     report.write(f"supply,{supply}\n")
