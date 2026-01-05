@@ -1,5 +1,5 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    f1 = open("../" + data_file_name, "r")
+    f1 = open(data_file_name, "r")
 
     supply = 0
     buy = 0
