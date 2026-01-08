@@ -7,10 +7,10 @@ def create_report(data_file_name: str, report_file_name: str):
             dict_data[key] = dict_data.get(key, 0) + int(value)
 
         dict_data['result'] = int(dict_data['supply']) - int(dict_data['buy'])
-
+    print (dict)
     with open(report_file_name, 'w') as file:
-        for key, value in dict_data.items():
-            file.write(f"{key},{value}\n")
+        for key in ['supply', 'buy', 'result']:
+            file.write(f"{dict_data.get(key, 0)},{dict_data.get(key, 1)}\n")
 
 
 
