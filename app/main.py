@@ -10,7 +10,8 @@ def create_report(data_file_name: str, report_file_name: str):
     print (dict)
     with open(report_file_name, 'w') as file:
         for key in ['supply', 'buy', 'result']:
-            file.write(f"{dict_data.get(key, 0)},{dict_data.get(key, 1)}\n")
+            file.write(key+","+str(dict_data.get(key, 1))+"\n")
+            print(key+","+str(dict_data.get(key, 1))+"\n")
 
 
 
