@@ -11,7 +11,3 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     with open(report_file_name, 'w') as file:
         for key in ['supply', 'buy', 'result']:
             file.write(key + "," + str(dict_data.get(key, 1)) + "\n")
-
-
-
-    
