@@ -14,7 +14,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             elif operator == "buy":
                 buy_sum += numbers
 
-
     with open(report_file_name, "w") as new_numbers:
         new_numbers.write(f"supply,{supply_sum}\n")
         new_numbers.write(f"buy,{buy_sum}\n")
