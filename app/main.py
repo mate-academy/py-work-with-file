@@ -7,7 +7,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             line = line.strip()
             if not line:
                 continue
-            operator, numbers = line.split(',')
+            operator, numbers = line.split(",")
             numbers = int(numbers)
             if operator == "supply":
                 supply_sum += numbers
