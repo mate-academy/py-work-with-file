@@ -12,7 +12,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
             # Separando o tipo de operação e o valor pela vírgula
             operation, amount = clean_line.split(",")
-            
             if operation == "supply":
                 supply_total += int(amount)
             elif operation == "buy":
