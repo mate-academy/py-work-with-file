@@ -7,7 +7,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             row = row.strip()
             if not row:
                 continue
-            
             parts = row.split(",")
             if "supply" in parts:
                 supply += int(parts[1])
