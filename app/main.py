@@ -14,6 +14,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     result = total.get("supply", 0) - total.get("buy", 0)
 
     with open(report_file_name, "w", encoding="utf-8") as file2:
-        file2.write(f"supply,{total.get("supply", 0)}\n")
-        file2.write(f"buy,{total.get("buy", 0)}\n")
+        file2.write(f'supply,{total.get("supply", 0)}\n')
+        file2.write(f'buy,{total.get("buy", 0)}\n')
         file2.write(f"result,{result}\n")
