@@ -7,9 +7,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     for line in data_file:
         elems = line.split(",")
         if elems[0] == "supply":
-            supply = int(elems[1])
+            supply += int(elems[1])
         else:
-            buy = int(elems[1])
+            buy += int(elems[1])
     data_file.close()
 
     report = open(report_file_name, "w")
