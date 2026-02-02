@@ -13,7 +13,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     data_file.close()
 
     report = open(report_file_name, "w")
-    report.write("supply," + str(supply))
-    report.write("buy," + str(buy))
-    report.write("result," + str(supply - buy))
+    report.write("supply," + str(supply) + "\n")
+    report.write("buy," + str(buy) + "\n")
+    report.write("result," + str(supply - buy) + "\n")
     report.close()
