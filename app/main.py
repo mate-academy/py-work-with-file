@@ -14,6 +14,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         buy_total = report_dict.get("buy")
         report_dict["result"] = supply_total - buy_total
 
+    # Save report into file
     with open(report_file_name, "w") as file:
         report = [f"{key},{value}" for key, value in report_dict.items()]
         file.write("\n".join(report) + "\n")
