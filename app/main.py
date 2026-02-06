@@ -7,5 +7,5 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     file_data.close()
     file_report = open(report_file_name, "w")
     for key, value in dict_result.items():
-        file_report.write(f"{key},{value}")
+        file_report.write(f"{key},{value}\n")
     file_report.close()
