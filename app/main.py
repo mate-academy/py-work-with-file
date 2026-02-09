@@ -1,1 +1,24 @@
-# write your code here
+from __future__ import annotations
+
+
+def create_report(data_file_name: str, report_file_name: str) -> None:
+    supply_total = 0
+    buy_total = 0
+
+    with open(data_file_name, "r") as data_file:
+        for line in data_file:
+            line = line.strip()
+            if not line:
+                continue
+            operation_type, amount_str = line.split(",", 1)
+            amount = int(amount_str)
+            if operation_type == "supply":
+                supply_total += amount
+            elif operation_type == "buy":
+                buy_total += amount
+
+    result = supply_total - buy_total
+    report = f"supply,{supply_total}\nbuy,{buy_total}\nresult,{result}\n"
+
+    with open(report_file_name, "w") as report_file:
+        report_file.write(report)
