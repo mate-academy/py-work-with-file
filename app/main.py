@@ -1,4 +1,7 @@
-def create_report(data_file_name: str, report_file_name: str) -> None:
+def create_report(
+        data_file_name: str,
+        report_file_name: str
+) -> None:
     report = open(report_file_name, "w")
     data = open(data_file_name, "r")
     new_dict = {}
