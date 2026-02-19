@@ -1,6 +1,6 @@
-def create_report(data_file_name: str, report_file_name: str):
-    file = open(data_file_name)
-    data_set = file.readlines();
+def create_report(data_file_name: str, report_file_name: str) -> None:
+    file_data = open(data_file_name)
+    data_set = file_data.readlines()
     supply = 0
     buy = 0
     for data in data_set:
