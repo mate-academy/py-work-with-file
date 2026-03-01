@@ -6,10 +6,14 @@ def create_report(
     buy = 0
     with open(data_file_name, "r") as data_file:
         for line in data_file:
-            if "supply" in line:
-                supply += int(line.split(",")[1])
-            elif "buy" in line:
-                buy += int(line.split(",")[1])
+            line = line.rstrip()
+            parts = line.split(",")
+            operation = parts[0]
+            amount = int(parts[1])
+            if operation == "supply":
+                supply += amount
+            elif operation == "buy":
+                buy += amount
     result = supply - buy
     with open(report_file_name, "w") as report_file:
         report_file.write("supply," + str(supply) + "\n")
