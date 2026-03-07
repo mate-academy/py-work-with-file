@@ -17,6 +17,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                              - report_dict.get("buy", 0))
 
     with open(report_file_name, "w") as file:
-        file.write(f"supply,{report_dict.get("supply", 0)}\n"
-                   f"buy,{report_dict.get("buy", 0)}\n"
-                   f"result,{report_dict.get("result", 0)}\n")
+        file.write(f'supply,{report_dict.get("supply", 0)}\n'
+                   f'buy,{report_dict.get("buy", 0)}\n'
+                   f'result,{report_dict.get("result", 0)}\n')
