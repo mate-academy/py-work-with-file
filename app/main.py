@@ -7,8 +7,14 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             line = line.strip()
             if not line:
                 continue
-            operation, amount_str = line.split(",")
-            amount = int(amount_str)
+            parts = [p.strip() for p in line.split(",")]
+            if len(parts) != 2:
+                continue
+            operation, amount_str = parts
+            try:
+                amount = int(amount_str)
+            except ValueError:
+                continue
             if operation == "supply":
                 total_supply += amount
             elif operation == "buy":
