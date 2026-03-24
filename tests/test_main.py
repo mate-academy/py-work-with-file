@@ -26,7 +26,7 @@ class CleanUpFile:
 
 
 @pytest.mark.parametrize(
-    "data_file_name,report_file_name,expected_report",
+    "data_file_name.csv,report_file_name,expected_report",
     [
         (
             "apples.csv",
