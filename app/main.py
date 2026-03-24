@@ -20,7 +20,9 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             elif operation == "buy":
                 total_buy += amount
 
+    result = total_supply - total_buy
+
     with open(report_file_name, "w") as output_file:
         output_file.write(f"supply,{total_supply}\n")
         output_file.write(f"buy,{total_buy}\n")
-        output_file.write(f"result,{total_supply - total_buy}\n")
+        output_file.write(f"result,{result}\n")
