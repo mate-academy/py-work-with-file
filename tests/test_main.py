@@ -50,7 +50,8 @@ class CleanUpFile:
         ),
     ],
 )
-def test_create_report(
+def \
+        test_create_report(
     data_file_name: str, report_file_name: str, expected_report: str
 ) -> None:
     create_report(data_file_name, report_file_name)
