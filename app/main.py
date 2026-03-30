@@ -1,25 +1,32 @@
-def create_report(data_file_name: str, report_file_name: str):
-    supply_total = 0
-    buy_total = 0
+from pathlib import Path
 
-    with open(data_file_name, 'r') as file:
-        for line in file:
+
+def create_report(data_file_name: str, report_file_name: str) -> None:
+    base_dir = Path(__file__).resolve().parent.parent
+
+    input_path = base_dir / data_file_name   # читаем из корня
+    output_path = Path(report_file_name)     # пишем в cwd!
+
+    supply = 0
+    buy = 0
+
+    with open(input_path) as f:
+        for line in f:
             line = line.strip()
-
             if not line:
                 continue
 
             operation, value = line.split(',')
             value = int(value)
 
-            if operation == 'supply':
-                supply_total += value
-            elif operation == 'buy':
-                buy_total += value
+            if operation == "supply":
+                supply += value
+            elif operation == "buy":
+                buy += value
 
-    result = supply_total - buy_total
+    result = supply - buy
 
-    with open(report_file_name, 'w') as file:
-        file.write(f"supply,{supply_total}\n")
-        file.write(f"buy,{buy_total}\n")
-        file.write(f"result,{result}\n")
+    with open(output_path, 'w') as f:
+        f.write(f"supply,{supply}\n")
+        f.write(f"buy,{buy}\n")
+        f.write(f"result,{result}\n")
