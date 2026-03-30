@@ -1,7 +1,10 @@
 from pathlib import Path
 
 
-def create_report(data_file_name: str, report_file_name: str) -> None:
+def create_report(
+    data_file_name: str,
+    report_file_name: str
+) -> None:
     base_dir = Path(__file__).resolve().parent.parent
 
     input_path = base_dir / data_file_name   # читаем из корня
@@ -16,7 +19,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             if not line:
                 continue
 
-            operation, value = line.split(',')
+            operation, value = line.split(",")
             value = int(value)
 
             if operation == "supply":
@@ -26,7 +29,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
     result = supply - buy
 
-    with open(output_path, 'w') as f:
+    with open(output_path, "w") as f:
         f.write(f"supply,{supply}\n")
         f.write(f"buy,{buy}\n")
         f.write(f"result,{result}\n")
