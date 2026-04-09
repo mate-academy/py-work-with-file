@@ -12,4 +12,3 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     for key, value in operation_dict.items():
         report_file.write(f"{key},{value}\n")
     report_file.close()
-
