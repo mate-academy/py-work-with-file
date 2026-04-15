@@ -5,10 +5,9 @@ def create_report(data_file_name: str, report_file_name: str):
     BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
     data_path = os.path.join(BASE_DIR, data_file_name)
-    report_path = os.path.join(BASE_DIR, report_file_name)
 
     with open(data_path, "r", encoding="utf-8") as data_file, \
-         open(report_path, "w", encoding="utf-8") as report_file:
+         open(report_file_name, "w", encoding="utf-8") as report_file:
 
         report = {
             "supply": 0,
