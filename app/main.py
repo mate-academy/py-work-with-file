@@ -1,27 +1,31 @@
 import os
+from typing import Dict
 
 
-def create_report(data_file_name: str, report_file_name: str):
-    BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+def create_report(data_file_name: str, report_file_name: str) -> None:
+    base_dir: str = os.path.dirname(os.path.dirname(__file__))
+    data_path: str = os.path.join(base_dir, data_file_name)
 
-    data_path = os.path.join(BASE_DIR, data_file_name)
+    report: Dict[str, int] = {
+        "supply": 0,
+        "buy": 0,
+    }
 
-    with open(data_path, "r", encoding="utf-8") as data_file, \
-         open(report_file_name, "w", encoding="utf-8") as report_file:
-
-        report = {
-            "supply": 0,
-            "buy": 0
-        }
-
+    with (
+        open(data_path, "r", encoding="utf-8") as data_file,
+        open(report_file_name, "w", encoding="utf-8") as report_file,
+    ):
         for line in data_file:
-            if not line.strip():
+            line = line.strip()
+            if not line:
                 continue
 
-            operation, amount = line.strip().split(",")
-            report[operation] += int(amount)
+            operation, amount_str = line.split(",")
+            amount: int = int(amount_str)
 
-        result = report["supply"] - report["buy"]
+            report[operation] += amount
+
+        result: int = report["supply"] - report["buy"]
 
         report_file.write(f"supply,{report['supply']}\n")
         report_file.write(f"buy,{report['buy']}\n")
