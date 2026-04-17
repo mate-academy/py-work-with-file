@@ -9,7 +9,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             if not line:
                 continue
 
-            operation, amount = line.split(',')
+            operation, amount = line.split(",")
             amount = int(amount)
 
             if operation == "supply":
