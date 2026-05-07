@@ -1,17 +1,26 @@
-import pandas
+import csv
 
 
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    df = pandas.read_csv(data_file_name, sep=",", header=None,
-                         names=["operation", "value"])
+    supply_sum, buy_sum = 0, 0
 
-    supply_sum = df[df["operation"] == "supply"]["value"].sum()
-    buy_sum = df[df["operation"] == "buy"]["value"].sum()
-    diff = supply_sum - buy_sum
+    with open(data_file_name, "r") as f:
+        content = csv.reader(f)
+        for operation, value in content:
+            if operation == "supply":
+                supply_sum += int(value)
+            if operation == "buy":
+                buy_sum += int(value)
+    result = supply_sum - buy_sum
 
-    result_df = pandas.DataFrame({
-        "text": ["supply", "buy", "result"],
-        "value": [supply_sum, buy_sum, diff]
-    })
+    with open(report_file_name, "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerows([
+            ["supply", supply_sum],
+            ["buy", buy_sum],
+            ["result", result]
+        ])
 
-    result_df.to_csv(report_file_name, index=False, header=False, sep=",")
+
+if __name__ == "__main__":
+    create_report("apples.csv", "test.csv")
