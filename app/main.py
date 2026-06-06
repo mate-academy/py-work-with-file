@@ -1,4 +1,4 @@
-def create_report(data_file_name: str, report_file_name: str):
+def create_report(data_file_name: str, report_file_name: str) -> None:
     result = 0
     supply_total = 0
     buy_total = 0
