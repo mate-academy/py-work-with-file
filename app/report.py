@@ -35,6 +35,3 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         print(f"✗ Error: Invalid CSV format - {e}")
     except IOError as e:
         print(f"✗ Error: Cannot write report - {e}")
-
-
-
