@@ -1,1 +1,20 @@
-# write your code here
+def create_report(data_file_name: str, report_file_name: str) -> None:
+    report_dict = {"supply": 0, "buy": 0, "result": 0}
+
+    with open(data_file_name, "r") as file:
+        for line in file.readlines():
+            if not line:
+                continue
+
+            key, value = line.strip().split(",")
+
+            report_dict[key] = report_dict.get(key, 0) + int(value)
+
+        supply_total = report_dict.get("supply")
+        buy_total = report_dict.get("buy")
+        report_dict["result"] = supply_total - buy_total
+
+    # Save report into file
+    with open(report_file_name, "w") as file:
+        report = [f"{key},{value}" for key, value in report_dict.items()]
+        file.write("\n".join(report) + "\n")
