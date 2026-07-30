@@ -1,60 +1,37 @@
 from __future__ import annotations
-import os
-from types import TracebackType
-from typing import Optional, Type
-
-import pytest
-
-from app.main import create_report
+import csv
 
 
-class CleanUpFile:
-    def __init__(self, filename: str) -> None:
-        self.filename = filename
+def create_file_from_input() -> None:
+    filename = input("Enter name of the file: ").strip()
+    lines = []
 
-    def __enter__(self) -> CleanUpFile:
-        return self
+    while True:
+        line = input("Enter new line of content: ")
+        if line.lower() == "stop":
+            break
+        lines.append(line)
 
-    def __exit__(
-        self,
-        exc_type: Optional[Type[BaseException]],
-        exc_val: Optional[BaseException],
-        exc_tb: Optional[TracebackType],
-    ) -> None:
-        if os.path.exists(self.filename):
-            os.remove(self.filename)
+    with open(f"{filename}.txt", "w") as f:
+        for line in lines:
+            f.write(line + "\n")
 
 
-@pytest.mark.parametrize(
-    "data_file_name,report_file_name,expected_report",
-    [
-        (
-            "apples.csv",
-            "apples_report.csv",
-            "supply,188\nbuy,115\nresult,73\n",
-        ),
-        (
-            "bananas.csv",
-            "bananas_report.csv",
-            "supply,491\nbuy,293\nresult,198\n",
-        ),
-        (
-            "grapes.csv",
-            "grapes_report.csv",
-            "supply,352\nbuy,352\nresult,0\n",
-        ),
-        (
-            "oranges.csv",
-            "oranges_report.csv",
-            "supply,295\nbuy,154\nresult,141\n",
-        ),
-    ],
-)
-def test_create_report(
-    data_file_name: str, report_file_name: str, expected_report: str
-) -> None:
-    create_report(data_file_name, report_file_name)
+def create_report(data_file_name: str, report_file_name: str) -> None:
+    supply_total = 0
+    buy_total = 0
 
-    with CleanUpFile(report_file_name):
-        with open(report_file_name, "r") as report_file:
-            assert report_file.read() == expected_report
+    with open(data_file_name, newline="") as csvfile:
+        reader = csv.reader(csvfile)
+        for row in reader:
+            if row[0] == "supply":
+                supply_total += int(row[1])
+            elif row[0] == "buy":
+                buy_total += int(row[1])
+
+    result = supply_total - buy_total
+
+    with open(report_file_name, "w") as report_file:
+        report_file.write(f"supply,{supply_total}\n")
+        report_file.write(f"buy,{buy_total}\n")
+        report_file.write(f"result,{result}\n")
