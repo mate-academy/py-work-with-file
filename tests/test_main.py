@@ -57,4 +57,9 @@ def test_create_report(
 
     with CleanUpFile(report_file_name):
         with open(report_file_name, "r") as report_file:
-            assert report_file.read() == expected_report
+            read = report_file.read()
+            print("exp:")
+            print(expected_report)
+            print("act:")
+            print(read)
+            assert read == expected_report
