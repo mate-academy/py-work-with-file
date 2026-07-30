@@ -1,1 +1,10 @@
-# write your code here
+def create_report(data_file_name: str, report_file_name: str) -> None:
+    data_dict = {"supply": 0, "buy": 0}
+    with (open(data_file_name, "r") as data,
+          open(report_file_name, "w") as report):
+        for line in data:
+            data_dict[line.split(",")[0]] += int(line.split(",")[1])
+        report.write("supply," + str(data_dict["supply"]) + "\n")
+        report.write("buy," + str(data_dict["buy"]) + "\n")
+        report.write("result," + str(data_dict["supply"]
+                                     - data_dict["buy"]) + "\n")
