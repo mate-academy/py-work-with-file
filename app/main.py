@@ -13,7 +13,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             amount = int(amount)
 
             if operation == "supply":
-                supply += amount
+                supply += amount  # supply = suply + amount
             elif operation == "buy":
                 buy += amount
 
@@ -23,3 +23,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         report_file.write(f"supply,{supply}\n")
         report_file.write(f"buy,{buy}\n")
         report_file.write(f"result,{result}")
+
+
+create_report("apples.csv","report.csv")
