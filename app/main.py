@@ -25,4 +25,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         report_file.write(f"result,{result}")
 
 
-create_report("apples.csv","report.csv")
+create_report("apples.csv", "report.csv")
+create_report("bananas.csv", "report1.csv")
+create_report("grapes.csv", "report2.csv")
+create_report("oranges.csv", "report3.csv")
