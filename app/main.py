@@ -6,8 +6,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             if not line.strip():
                 continue
 
-            key = line.rstrip('\n').split(",")[0]
-            value = int(line.rstrip('\n').split(",")[1])
+            key = line.rstrip("\n").split(",")[0]
+            value = int(line.rstrip("\n").split(",")[1])
 
             if key in calculations:
                 calculations[key] += value
