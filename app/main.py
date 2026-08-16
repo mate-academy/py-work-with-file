@@ -15,8 +15,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
                 calculations.update({key: value})
 
     with open(report_file_name, "w") as report:
-        supply = calculations['supply']
-        buy = calculations['buy']
+        supply = calculations["supply"]
+        buy = calculations["buy"]
 
         report.write(f"supply,{supply}\n"
                      f"buy,{buy}\n"
