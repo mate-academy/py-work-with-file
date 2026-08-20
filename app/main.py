@@ -9,8 +9,13 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             else:
                 result_dict[line_list[0]] = int(line_list[1])
 
-    result_dict["result"] = result_dict["supply"] - result_dict["buy"]
+    result = [
+        f'supply,{result_dict["supply"]}\n',
+        f'buy,{result_dict["buy"]}\n',
+        f'result,{result_dict["supply"] - result_dict["buy"]}\n'
+    ]
 
     with open(report_file_name, "w") as w_file:
-        for key, value in result_dict.items():
-            w_file.write(f"{key},{value}\n")
+        w_file.write("".join(result))
+
+create_report(r"C:\Users\1\PycharmProjects\py-work-with-file\apples.csv", r"C:\Users\1\PycharmProjects\py-work-with-file\apples.csv")
