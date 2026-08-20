@@ -17,5 +17,3 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
     with open(report_file_name, "w") as w_file:
         w_file.write("".join(result))
-
-create_report(r"C:\Users\1\PycharmProjects\py-work-with-file\apples.csv", r"C:\Users\1\PycharmProjects\py-work-with-file\apples.csv")
