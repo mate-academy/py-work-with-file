@@ -1,0 +1,5 @@
+supply,30
+badline
+buy,notanumber
+buy,10
+supply,5,extra
