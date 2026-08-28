@@ -1,1 +1,13 @@
-# write your code here
+def create_report(data_file_name: str, report_file_name: str) -> None:
+    with open(data_file_name) as data_file:
+        total = {}
+        for string in data_file:
+            string = string.strip("\n")
+            operation, amount = string.split(",")
+            total[operation] = total.get(operation, 0) + int(amount)
+
+        balance = total["supply"] - total["buy"]
+        with open(report_file_name, "w") as report_file:
+            report_file.write(f"supply,{total['supply']}\n"
+                              f"buy,{total['buy']}\n"
+                              f"result,{balance}\n")
