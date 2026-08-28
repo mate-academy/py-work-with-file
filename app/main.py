@@ -1,4 +1,4 @@
-def create_report(data_file_name: str, report_file_name: str):
+def create_report(data_file_name: str, report_file_name: str) -> None:
     with open(data_file_name) as data_file:
         total = {}
         for string in data_file:
