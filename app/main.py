@@ -8,6 +8,4 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
         balance = total["supply"] - total["buy"]
         with open(report_file_name, "w") as report_file:
-            for instance, amount in total.items():
-                report_file.write(f"{instance},{amount}\n")
-            report_file.write(f"result,{balance}\n")
+            report_file.write(f"supply,{total["supply"]}\nbuy,{total["buy"]}\nresult,{balance}\n")
