@@ -1,28 +1,19 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    dict_of_value = {}
+    totals = {}
 
-    with open(data_file_name, "rt") as f:
-        lines = f.readlines()
+    with open(data_file_name, "r") as f:
+        for line in f:
+            key, value = line.split(",")
+            value = int(value.strip())
 
-        for line in lines:
-            split_value = line.split(",")
-            key = split_value[0]
-            value = int(split_value[1].strip())
-            if split_value[0] not in dict_of_value:
-                dict_of_value[key] = value
+            if key not in totals:
+                totals[key] = value
             else:
-                dict_of_value[key] += value
+                totals[key] += value
 
-    with open(report_file_name, "a") as f:
-        result = None
+    result = totals["supply"] - totals["buy"]
 
-        for key, value in dict_of_value.items():
-            f.write(f"{key}, {value}\n")
-
-        for value in dict_of_value.values():
-            if result is None:
-                result = value
-            else:
-                result -= value
-
-        f.write(f"result, {result}\n")
+    with open(report_file_name, "w") as f:
+        f.write(f"supply,{totals['supply']}\n")
+        f.write(f"buy,{totals['buy']}\n")
+        f.write(f"result,{result}\n")
