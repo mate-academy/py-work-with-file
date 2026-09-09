@@ -17,7 +17,7 @@ For example, let's say you had a spreadsheet containing the following data:
 
 | operation type | amount  | 
 | :------------: | :-------:|
-| supply         | 30       | 
+| supply         | 30       |   
 | buy            | 10       | 
 | buy            | 13       | 
 | supply         | 17       | 
