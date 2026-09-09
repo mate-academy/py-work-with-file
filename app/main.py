@@ -1,5 +1,5 @@
 def create_report(data_file_name: str, report_file_name: str) -> None:
-    with open(f"../{data_file_name}", "r") as data_file:
+    with open(data_file_name, "r") as data_file:
         lines_list = data_file.readlines()
 
         data_dict = {}
@@ -17,6 +17,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         supply = data_dict.get("supply", 0)
         buy = data_dict.get("buy", 0)
         text_file = f"supply,{supply}\nbuy,{buy}\nresult,{supply - buy}\n"
+        print(text_file)
 
         with open(report_file_name, "w") as report_file:
             report_file.write(text_file)
