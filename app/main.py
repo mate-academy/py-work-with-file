@@ -9,10 +9,10 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
         for row in reader:
             if not row or len(row) < 2:
                 continue
-            
-            operation_type = row[0]
+
+            operation_type = row
             try:
-                amount = int(row[1])
+                amount = int(row)
             except ValueError:
                 continue
 
@@ -21,7 +21,12 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
     result = totals["supply"] - totals["buy"]
 
-    with open(report_file_name, mode="w", encoding="utf-8", newline="") as file:
+    with open(
+        report_file_name,
+        mode="w",
+        encoding="utf-8",
+        newline=""
+    ) as file:
         writer = csv.writer(file)
         writer.writerow(["supply", totals["supply"]])
         writer.writerow(["buy", totals["buy"]])
