@@ -7,10 +7,15 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     with open(data_file_name, mode="r", encoding="utf-8") as file:
         reader = csv.reader(file)
         for row in reader:
-            if not row:
+            if not row or len(row) < 2:
                 continue
+            
             operation_type = row[0]
-            amount = int(row[1])
+            try:
+                amount = int(row[1])
+            except ValueError:
+                continue
+
             if operation_type in totals:
                 totals[operation_type] += amount
 
