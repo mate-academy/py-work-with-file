@@ -4,7 +4,13 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
 
     with open(data_file_name, "r") as data_file:
         for line in data_file:
-            operation, amount = line.strip().split(",")
+            line = line.strip()
+
+            
+            if not line:
+                continue
+
+            operation, amount = line.split(",")
             amount = int(amount)
 
             if operation == "supply":
