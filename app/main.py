@@ -8,7 +8,7 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
     with open(data_file_name, mode='r', encoding='utf-8') as file:
         reader = csv.reader(file)
         for row in reader:
-            # Ignora linhas vazias ou inválidas
+            # Ignora linhas vazias ou mal formatadas
             if not row or len(row) < 2:
                 continue
             
@@ -18,13 +18,12 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             except ValueError:
                 continue
             
-            # Acumula os valores conforme a operação
             if operation == 'supply':
                 supply_total += amount
             elif operation == 'buy':
                 buy_total += amount
                 
-    # Calcula o resultado final
+    # Calcula o resultado da diferença
     result = supply_total - buy_total
     
     # Escrevendo o relatório no arquivo de saída
