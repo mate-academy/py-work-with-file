@@ -12,7 +12,6 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             if "," in line:
                 parts = line.split(",", 1)
                 operation = parts[0].strip().lower()
-                
                 try:
                     amount = int(parts[1].strip())
                 except ValueError:
