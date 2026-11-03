@@ -7,15 +7,16 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             line = line.strip()
             if not line:
                 continue
-            
-            operation, amount = line.split(",")
-            operation = operation.strip()
-            amount = int(amount.strip())
 
-            if operation == "supply":
-                total_supply += amount
-            elif operation == "buy":
-                total_buy += amount
+            parts = line.split(",")
+            if len(parts) == 2:
+                operation = parts[0].strip()
+                amount = int(parts[1].strip())
+
+                if operation == "supply":
+                    total_supply += amount
+                elif operation == "buy":
+                    total_buy += amount
 
     result = total_supply - total_buy
 
