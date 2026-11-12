@@ -12,8 +12,8 @@ def create_report(data_file_name: str, report_file_name: str) -> None:
             supply_count += comes_after_comma
         if comes_before_comma == "buy":
             buy_count += comes_after_comma
-    report_file.write(f"supply,{supply_count}")
-    report_file.write(f"buy,{buy_count}")
+    report_file.write(f"supply,{supply_count}\n")
+    report_file.write(f"buy,{buy_count}\n")
     report_file.write(f"result,{supply_count - buy_count}")
     data_file.close()
     report_file.close()
