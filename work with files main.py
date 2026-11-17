@@ -20,6 +20,6 @@ def create_report(
                 buy += amount
 
     with open(report_file_name, "w", encoding="utf-8") as report_file:
-        report_file.write(f"supply,{supply}\n")
-        report_file.write(f"buy,{buy}\n")
-        report_file.write(f"result,{supply - buy}\n")
+        report_file.write(f"supply,{supply}n")
+        report_file.write(f"buy,{buy}n")
+        report_file.write(f"result,{supply - buy}n")
