@@ -6,3 +6,8 @@
 venv/
 .pytest_cache/
 **__pycache__/
+/apples.csv
+/bananas.csv
+/grapes.csv
+/oranges.csv
+*_report.csv
