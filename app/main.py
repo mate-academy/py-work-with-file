@@ -4,12 +4,12 @@ def create_report(
 ) -> None:
 
     with open(data_file_name, "rt") as file_object:
-        contents = file_object.readlines()
+        file_lines = file_object.readlines()
 
     supply = 0
     buy = 0
 
-    for line in contents:
+    for line in file_lines:
         operation, amount = line.rstrip().split(",")
         if operation == "supply":
             supply += int(amount)
